@@ -2,16 +2,16 @@ html {
     height: 100%;
 }
 
+header {
+    background-color: #eff7f5;
+    box-shadow: 1px -1px 7px 0 #d8edec;
+}
+
 body {
     background: url('/media/flower_background.webp') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     font-family:"Quicksand", sans-serif;
-}
-
-.navbar {
-    background-color: #eff7f5;
-    box-shadow: 1px -1px 7px 0 #d8edec;
 }
 
 .logo {
@@ -71,6 +71,10 @@ body {
 
 .text-black {
     color: #000 !important;
+}
+
+.display-4 {
+    background-color: #fff;
 }
 
 .border-black {
@@ -133,5 +137,11 @@ input[name='q']::placeholder {
 
     .header-container {
         padding-top: 164px;
+    }
+}
+
+@media (max-width: 767px) {
+    .home-container {
+        padding-top: 170px;
     }
 }
