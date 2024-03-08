@@ -11,6 +11,7 @@ body {
 
 .navbar {
     background-color: #eff7f5;
+    box-shadow: 1px -1px 7px 0 #d8edec;
 }
 
 .logo {
