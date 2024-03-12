@@ -14,6 +14,10 @@ body {
     font-family:"Quicksand", sans-serif;
 }
 
+#main-nav a:hover {
+    text-decoration: underline;
+}
+
 .logo {
     height: 60px;
 }
