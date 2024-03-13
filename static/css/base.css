@@ -39,6 +39,12 @@ body {
     width: 1.5rem;
 }
 
+.home-image {
+    background-image: url('/media/home-flowers.webp');
+    background-size: cover;
+    background-position: center;
+}
+
 .shop-now-button {
     background: black;
     color: white;
@@ -97,6 +103,10 @@ body {
 	position: fixed;
 	background: white;
 	z-index: -1;
+}
+
+.card:hover {
+    border-color: #6c757d !important; /* Secondary border color */
 }
 
 a.category-badge > span.badge:hover {
