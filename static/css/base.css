@@ -106,7 +106,7 @@ body {
 }
 
 .card:hover {
-    border-color: #6c757d !important; /* Secondary border color */
+    border-color:#53877a !important; /* Secondary border color */
 }
 
 a.category-badge > span.badge:hover {
