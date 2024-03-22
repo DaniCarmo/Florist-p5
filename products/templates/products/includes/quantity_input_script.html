@@ -40,4 +40,22 @@
        var itemId = $(this).data('item_id');
        handleEnableDisable(itemId);
     });
+
+    //Update bouquet price per size selected
+    document.addEventListener("DOMContentLoaded", function() {
+    var sizeSelect = document.getElementById('id_product_size');
+    var priceDisplay = document.querySelector('.product-price');
+    var productPriceData = JSON.parse('{{ product_price_data|escapejs }}');
+
+    sizeSelect.addEventListener('change', function() {
+        var selectedSize = sizeSelect.value;
+        var newPrice = productPriceData[selectedSize];
+
+        if (newPrice !== undefined) {
+            priceDisplay.textContent = "$" + newPrice;
+        } else {
+            priceDisplay.textContent = "Price not available";
+        }
+    });
+});
 </script>

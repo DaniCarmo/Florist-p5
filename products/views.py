@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, Category
+import json
 
 # Create your views here.
 
@@ -58,13 +59,21 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show inidiviual products"""
+    """ A view to show individual products"""
 
+    # Retrieve the product object or return 404 if not found
     product = get_object_or_404(Product, pk=product_id)
+
+    # Prepare price data for JavaScript
+    product_price_data = json.dumps({
+        's': str(product.price_s),
+        'm': str(product.price_m),
+        'l': str(product.price_l),
+    })
 
     context = {
         'product': product,
+        'product_price_data': product_price_data,
     }
 
     return render(request, 'products/product_detail.html', context)
-
