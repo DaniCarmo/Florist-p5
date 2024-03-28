@@ -95,6 +95,16 @@ body {
     background: #000 !important;
 }
 
+#about {
+    background-color: #eff7f5;
+    font-family:"Quicksand", sans-serif;
+}
+
+#about h4 {
+    font-family: "Dancing Script", cursive;
+    font-size: 40px;
+}
+
 .card:hover {
     border-color:#53877a;
 }
