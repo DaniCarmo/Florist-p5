@@ -95,7 +95,7 @@ body {
     background: #000 !important;
 }
 
-#about {
+.about {
     background-color: #eff7f5;
     font-family:"Quicksand", sans-serif;
 }
@@ -103,6 +103,15 @@ body {
 #about h4 {
     font-family: "Dancing Script", cursive;
     font-size: 40px;
+}
+
+#footer {
+    background-color: #eff7f5;
+}
+
+.social-icon {
+    height: 2rem;
+    margin: 1rem;
 }
 
 .card:hover {
