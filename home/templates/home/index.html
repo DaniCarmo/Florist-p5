@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container h-100 home-container">
+    <div class="container home-container">
         <div class="row h-100">
             <div class="col-12 col-md-6 my-auto text-center">
                 <h1 class="display-4 text-black">Give The Gift Of Joy</h1>
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="container-fluid" class="about">
-            <div class="row" id="about-us">
+            <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-5 mt-lg-0">
                     <h4 class="mx-auto mb-5">About Us</h4>
                     <p class="lead px-4 justify-content-center">
@@ -47,41 +47,64 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 d-flex flex-column justify-content-center p-3">
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-5 mt-lg-0">
                     <img class="image-fluid rounded"
-                         src="media/home-flowers.webp"
-                         alt="front of florist shop">
+                            src="media/home-flowers.webp"
+                            alt="front of florist shop">
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid" class="about">
-        <div class="row" id="about-us">
-            <div class="col-lg-6 d-flex flex-column justify-content-center pt-5 mt-lg-0">
-                <h4 class="mx-auto mb-5">About Us</h4>
-                <p class="lead px-4 justify-content-center">
-                    Welcome to The Happy Florist, where beauty meets botanical artistry. Nestled in the heart of our community, we pride ourselves on crafting exquisite floral arrangements that capture the essence of nature's fleeting moments. With a passion for creativity and an unwavering commitment to quality, our team of skilled florists meticulously hand-selects each bloom, ensuring every bouquet is a masterpiece of color, texture, and fragrance. Whether you're celebrating life's joyful milestones, expressing heartfelt sentiments, or simply adding a touch of elegance to your surroundings, The Happy Florist is here to transform your vision into breathtaking reality.
-                </p>
-                <div class="row justify-content-around">
-                    <div class="col-4 text-center">
-                        <img src="media/staff1.webp" alt="Staff Member 1" class="img-fluid rounded-circle mb-2">
-                        <p>Mary Jane</p>
+    <footer>
+        <div class="container-fluid" class="about">
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center p-3">
+                    <h3 class="mb-3 mb-md-0 text-center">Sign Up To Our Newsletter!</h3>
+                    <!-- Form -->
+                    <div class="input-group news-input flex-column">
+                        <input type="text" class="form-control w-sm-100" placeholder="Enter Email" />
+                        <button class="btn btn-dark btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#subscribe">Submit</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="subscribe" tabindex="-1" aria-labelledby="subscribeto" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="text-success" id="subscribe">Success!</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                <p class="text-dark">Thank you for subscribing to our newsletter, we hope you enjoy our creative content, be sure to also follow us on social media.</p>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-4 text-center">
-                        <img src="media/staff2.webp" alt="Staff Member 2" class="img-fluid rounded-circle mb-2">
-                        <p>Chloe Dillane</p>
-                    </div>
-                    <div class="col-4 text-center">
-                        <img src="media/staff3.webp" alt="Staff Member 3" class="img-fluid rounded-circle mb-2">
-                        <p>Clara Smith</p>
+                </div>
+                <div class="col-lg-6 d-flex flex-column justify-content-center pt-5 mt-lg-0">
+                    <h4 class="mx-auto mb-5">Follow us!</h4>
+                    <p class="lead px-4 justify-content-center">
+                        Join us on social media to be part of our journey, share our passion, and stay connected with the latest updates and devents.
+                    </p>
+                    <div class="row justify-content-around">
+                        <!--Social media-->
+                        <a href ="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook Icon">
+                            <img src="media/icons/facebook-color-icon.svg" alt="Facebook Icon" class="social-icon">
+                        </a>
+                        <a href ="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram Icon">
+                            <img src="media/icons/ig-instagram-icon.svg" alt="Instagram Icon" class="social-icon">
+                        </a>
+                        <a href ="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter Icon">
+                            <img src="media/icons/twitter-square-color-icon.svg" alt="Twitter Icon" class="social-icon">
+                        </a>
+                        <a href ="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube Icon">
+                            <img src="media/icons/youtube-color-icon.svg" alt="YouTube Icon" class="social-icon">
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 d-flex flex-column justify-content-center p-3">
-                <img class="image-fluid rounded"
-                     src="media/home-flowers.webp"
-                     alt="front of florist shop">
-            </div>
         </div>
-    </div>
+    </footer>
 {% endblock %}
