@@ -10,22 +10,22 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container home-container">
-        <div class="row h-100">
-            <div class="col-12 col-md-6 my-auto text-center">
-                <h1 class="display-4 text-black">Give The Gift Of Joy</h1>
-                <div class="my-5">
+    <div class="container home-container pt-5">
+        <div class="row pt-5">
+            <div class="col-12 col-md-6 my-auto text-center pt-5">
+                <h1 class="display-4 text-black py-5">Give The Gift Of Joy</h1>
+                <div class="my-5 pb-5">
                     <h4><a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a></h4>
                 </div>
             </div>
-            <div class="col-12 col-md-6 my-auto text-center">
-                <h2 class="display-4 text-black">Free Delivery For Members!</h2>
-                <div class="my-5">
+            <div class="col-12 col-md-6 my-auto text-center pt-5">
+                <h2 class="display-4 text-black py-5">Free Delivery For Members!</h2>
+                <div class="my-5 pb-5">
                     <h4><a href="" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Sign Up</a></h4>
                 </div>
             </div>
         </div>
-        <div class="container-fluid" class="about">
+        <div class="container-fluid about my-5">
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-5 mt-lg-0">
                     <h4 class="mx-auto mb-5">About Us</h4>
@@ -55,14 +55,14 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="container-fluid" class="about">
+    <footer class ="pt-5">
+        <div class="container-fluid about mt-5 px-5">
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center p-3">
-                    <h3 class="mb-3 mb-md-0 text-center">Sign Up To Our Newsletter!</h3>
+                    <h3 class="pb-3 mb-md-0 text-center">Sign Up To Our Newsletter!</h3>
                     <!-- Form -->
-                    <div class="input-group news-input flex-column">
-                        <input type="text" class="form-control w-sm-100" placeholder="Enter Email" />
+                    <div class="input-group news-input flex-column" id="custom-width">
+                        <input type="text" class="form-control w-100" placeholder="Enter Email" />
                         <button class="btn btn-dark btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#subscribe">Submit</button>
                         <!-- Modal -->
                         <div class="modal fade" id="subscribe" tabindex="-1" aria-labelledby="subscribeto" aria-hidden="true">
@@ -83,7 +83,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 d-flex flex-column justify-content-center pt-5 mt-lg-0">
+                <div class="col-lg-6 d-flex flex-column justify-content-center py-5 mt-lg-0">
                     <h4 class="mx-auto mb-5">Follow us!</h4>
                     <p class="lead px-4 justify-content-center">
                         Join us on social media to be part of our journey, share our passion, and stay connected with the latest updates and devents.
