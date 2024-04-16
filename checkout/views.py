@@ -4,8 +4,6 @@ from django.contrib import messages
 from django.conf import settings
 
 from .forms import OrderForm
-from .models import Order, OrderLineItem
-
 
 
 def checkout(request):
