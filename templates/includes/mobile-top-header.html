@@ -1,5 +1,9 @@
+{% load static %}
+
 <li class="list-inline-item">
-    <a href="{% url 'home' %}" class="nav-link main-logo-link text-black d-block d-lg-none" id="mobile-search"><img src="media/logo.png" alt="flower Logo" class="logo" aria-haspopup="true" aria-expanded="false"></a>
+    <a href="{% url 'home' %}" class="nav-link main-logo-link text-black d-block d-lg-none" id="mobile-search">
+        <img src="{% static 'media/logo.png' %}" alt="flower Logo" class="logo" aria-haspopup="true" aria-expanded="false">
+    </a>
 </li>
 
 <li class="list-inline-item">
