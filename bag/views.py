@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 
 from products.models import Product
@@ -7,13 +8,29 @@ from products.models import Product
 
 def view_bag(request):
     """ A view that renders the bag contents page """
+    bag = request.session.get('bag', {})
+    updated_bag = {}
+
+    for item_id, item_data in bag.items():
+        try:
+            product = get_object_or_404(Product, pk=item_id)
+            updated_bag[item_id] = item_data
+        except:
+            continue  # Skip non-existent products
+
+    request.session['bag'] = updated_bag
 
     return render(request, 'bag/bag.html')
 
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 
-    product = Product.objects.get(pk=item_id) 
+    try:
+        product = Product.objects.get(pk=item_id)
+    except Product.DoesNotExist:
+        messages.error(request, "The product you are trying to add does not exist.")
+        return redirect(request.POST.get('redirect_url', 'products'))
+    
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     size = None
@@ -43,6 +60,11 @@ def add_to_bag(request, item_id):
 
 def adjust_bag(request, item_id):
     """ Adjust quantity of the specified product to the specified amount """
+    try:
+        product = Product.objects.get(pk=item_id)
+    except Product.DoesNotExist:
+        messages.error(request, "The product you are trying to adjust does not exist.")
+        return redirect(reverse('view_bag'))
      
     quantity = int(request.POST.get('quantity'))
     size = None
@@ -85,5 +107,5 @@ def remove_from_bag(request, item_id):
         request.session['bag'] = bag
         return HttpResponse(status=200)
 
-    except Exception as e:
+    except KeyError:
         return HttpResponse(status=500)
