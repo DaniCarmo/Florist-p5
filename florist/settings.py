@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-%07@+nuf%ghx=7m%(od@o-41u0b@(xjb26k6n^fh&h5ikygmqr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['the-happy-florist-5c44ce792179.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     # Other
     'crispy_forms',
     'crispy_bootstrap4',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -121,25 +123,20 @@ LOGIN_REDIRECT_URL = '/'
 WSGI_APPLICATION = 'florist.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# If running on Heroku
+# If running on Heroku then first instance, else in local env then second:
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
-    # If running locally or in non-Heroku environment
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -185,10 +182,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-
-#MEDIA_URL = '/media/' - delete
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media') - delete
 
 # Stripe
 FREE_DELIVERY_THRESHOLD = 50
