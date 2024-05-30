@@ -123,14 +123,6 @@ LOGIN_REDIRECT_URL = '/'
 WSGI_APPLICATION = 'florist.wsgi.application'
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-
 # If running on Heroku then first instance, else in local env then second:
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
