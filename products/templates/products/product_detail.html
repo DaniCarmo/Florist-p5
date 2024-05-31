@@ -30,9 +30,9 @@
                     <p class="mb-0">{{ product.name }}</p>
                     <p class="lead mb-0 text-left font-weight-bold product-price">
                         {% if product.has_sizes %}
-                            {% if product.price_s and product.price_m and product.price_l %}
+                        {% if "s" in product.available_sizes and "m" in product.available_sizes and "l" in product.available_sizes %}
                                 <!-- Display default price for "m" size -->    
-                                ${{ product.price_m }}
+                                ${{ product.price.m }}
                             {% else %}
                                 <!-- Display regular price -->
                                 ${{ product.price }}
