@@ -68,9 +68,9 @@ def product_detail(request, product_id):
 
     # Prepare price data for JavaScript
     product_price_data = json.dumps({
-        's': str(product.price_s),
-        'm': str(product.price_m),
-        'l': str(product.price_l),
+        's': str(product.price_s) if product.price_s is not None else None,
+        'm': str(product.price_m) if product.price_m is not None else None,
+        'l': str(product.price_l) if product.price_l is not None else None,
     })
 
     context = {
