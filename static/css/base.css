@@ -254,4 +254,15 @@ input[name='q']::placeholder {
     #custom-width {
         width: 100%;
       }
+
+      .display-4 {
+        font-size: 40px;
+      }
+}
+
+@media (max-width: 454px) {
+    .social-icon {
+        height: 2rem;
+        margin: .5rem;
+    }
 }
