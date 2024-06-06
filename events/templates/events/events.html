@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% load static %}
+
+<div id="main">
+    {% block page_header %}
+        <div class="container header-container">
+            <div class="row">
+                <div class="col"></div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block content %}
+        <div class="container-fluid pt-5">
+            <div class="row pt-5 mt-1">
+                <div class="col text-center mt-5 bg-white">
+                    <hr class="w-100 mb-1">
+                    <h2 class="logo-font my-4 text-center">Events</h2>
+                    <hr class="w-100 mb-1">
+                </div>
+            </div>
+            <div class="d-flex justify-content-end mb-3">
+                {% if user.is_authenticated and user.is_staff %}
+                <a href="{% url 'add_event' %}" class="btn btn-success">Add Event</a>
+                {% endif %}
+            </div>
+            <div class="row mb-5 pb-5 row-cols-1 row-cols-md-3 g-4">
+                {% for event in events %}
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ event.title }}</h5>
+                            <p class="card-text flex-grow-1">{{ event.description }}</p>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <div>
+                                    <p class="card-text">Date: {{ event.date }}</p>
+                                    <p class="card-text">Time: {{ event.time }}</p>
+                                    <p class="card-text">Location: {{ event.location }}</p>
+                                </div>
+                                {% if user.is_staff %}
+                                <!-- Delete Button -->
+                                <form method="post" action="{% url 'delete_event' event.id %}" id="delete-form-{{ event.id }}">
+                                    {% csrf_token %}
+                                    <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal"
+                                        data-bs-target="#confirmationModal-{{ event.id }}">Delete</button>
+                                    <div class="modal fade" id="confirmationModal-{{ event.id }}" tabindex="-1"
+                                        aria-labelledby="confirmationModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                Are you sure you want to delete this event?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- End Delete Button -->
+                                <!-- Update Button -->
+                                <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#updateModal-{{ event.id }}">Update</button>
+                                <!-- End Update Button -->
+                                <!-- Update Form Modal -->
+                                <div class="modal fade" id="updateModal-{{ event.id }}" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="updateModalLabel">Update Event</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="post" action="{% url 'update_event' event.id %}">
+                                                    {% csrf_token %}
+                                                    <div class="mb-3">
+                                                        <label for="update_title" class="form-label">Title</label>
+                                                        <input type="text" class="form-control" id="update_title" name="title" value="{{ event.title }}">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="update_description" class="form-label">Description</label>
+                                                        <textarea class="form-control" id="update_description" name="description">{{ event.description }}</textarea>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="update_date" class="form-label">Date</label>
+                                                        <input type="date" class="form-control" id="update_date" name="date" value="{{ event.date|date:'Y-m-d' }}">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="update_time" class="form-label">Time</label>
+                                                        <input type="time" class="form-control" id="update_time" name="time" value="{{ event.time|time:'H:i:s' }}">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="update_location" class="form-label">Location</label>
+                                                        <input type="text" class="form-control" id="update_location" name="location" value="{{ event.location }}">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Update</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Update Form Modal -->
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+<footer class ="pt-5">
+    <div class="container-fluid about mt-5 px-5">
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center p-3">
+                <h3 class="pb-3 mb-md-0 text-center">Sign Up To Our Newsletter!</h3>
+                <!-- Form -->
+                <div class="input-group news-input flex-column" id="custom-width">
+                    <input type="text" class="form-control w-100" placeholder="Enter Email" />
+                    <button class="btn btn-dark btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#subscribe">Submit</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="subscribe" tabindex="-1" aria-labelledby="subscribeto" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h1 class="text-success" id="subscribe">Success!</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            <p class="text-dark">Thank you for subscribing to our newsletter, we hope you enjoy our creative content, be sure to also follow us on social media.</p>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 d-flex flex-column justify-content-center py-5 mt-lg-0">
+                <h4 class="mx-auto mb-5">Follow us!</h4>
+                <p class="lead px-4 text-center">
+                    Join us on social media to be part of our journey, share our passion, and stay connected with the latest updates and devents.
+                </p>
+                <div class="row justify-content-around">
+                    <!--Social media-->
+                    <a href ="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook Icon">
+                        <img src="{% static 'media/icons/facebook-color-icon.svg' %}" alt="Facebook Icon" class="social-icon">
+                    </a>
+                    <a href ="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram Icon">
+                        <img src="{% static 'media/icons/ig-instagram-icon.svg' %}" alt="Instagram Icon" class="social-icon">
+                    </a>
+                    <a href ="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter Icon">
+                        <img src="{% static 'media/icons/twitter-square-color-icon.svg' %}" alt="Twitter Icon" class="social-icon">
+                    </a>
+                    <a href ="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube Icon">
+                        <img src="{% static 'media/icons/youtube-color-icon.svg' %}" alt="YouTube Icon" class="social-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}

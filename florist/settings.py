@@ -48,13 +48,12 @@ INSTALLED_APPS = [
     'bag',
     'checkout',
     'profiles',
+    'events',
 
     # Other
     'crispy_forms',
     'crispy_bootstrap4',
     'storages',
-    #'cloudinary',
-    #'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
