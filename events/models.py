@@ -16,13 +16,6 @@ class Event(models.Model):
     time = models.TimeField()
     location = models.CharField(max_length=200)
     created_on = models.DateTimeField(auto_now_add=True)
-    author = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        related_name="event_created_by",
-        default=get_default_author,
-        blank=True,
-    )
 
     def __str__(self):
         """
