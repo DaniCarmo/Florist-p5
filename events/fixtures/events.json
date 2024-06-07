@@ -6,7 +6,7 @@
             "title": "Event One",
             "description": "Description for Event One",
             "date": "2024-07-01",
-            "time": "1.15pm",
+            "time": "13:15",
             "location": "Location One"
         }
     },
@@ -17,7 +17,7 @@
             "title": "Event Two",
             "description": "Description for Event Two",
             "date": "2024-08-15",
-            "time": "2.00pm",
+            "time": "14:00",
             "location": "Location Two"
         }
     },
@@ -28,7 +28,7 @@
             "title": "Event Three",
             "description": "Description for Event Three",
             "date": "2024-08-15",
-            "time": "11.30am",
+            "time": "11:30",
             "location": "Location Three"
         }
     },
@@ -39,7 +39,7 @@
             "title": "Event Four",
             "description": "Description for Event Four",
             "date": "2024-07-01",
-            "time": "3.45pm",
+            "time": "15:45",
             "location": "Location Four"
         }
     },
@@ -50,7 +50,7 @@
             "title": "Event Five",
             "description": "Description for Event Five",
             "date": "2024-08-15",
-            "time": "10.00am",
+            "time": "10:00",
             "location": "Location Five"
         }
     },
@@ -61,7 +61,7 @@
             "title": "Event Six",
             "description": "Description for Event Six",
             "date": "2024-07-01",
-            "time": "12.30pm",
+            "time": "11:30",
             "location": "Location Six"
         }
     }
