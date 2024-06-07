@@ -231,10 +231,6 @@ input[name='q']::placeholder {
     justify-content: center;
 }
 
-.events-container .icon-container {
-    margin-left: 10px;
-}
-
 .carousel-inner img {
     max-height: 650px;
     width: auto;

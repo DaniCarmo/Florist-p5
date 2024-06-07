@@ -25,7 +25,7 @@
                 <a href="{% url 'add_event' %}" class="btn btn-success">Add Event</a>
                 {% endif %}
             </div>
-            <div class="container">
+            <div class="container events">
                 <div class="row my-5 py-5 row-cols-1 row-cols-md-3 g-4">
                     {% for event in events %}
                     <div class="col pb-5">
@@ -122,16 +122,14 @@
                 <hr class="w-100 mb-1">
                 <div class="events-container d-flex align-items-center justify-content-center">
                     <h3 class="logo-font my-4">Check out our Event Gallery!</h3>
-                    <span class="icon-container">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/dyfotzbb.json"
-                            trigger="loop"
-                            delay="1000"
-                            stroke="light"
-                            colors="primary:#ee6d66,secondary:#08a88a"
-                            style="width:150px;height:150px">
-                        </lord-icon>
-                    </span>
+                    <lord-icon
+                        src="https://cdn.lordicon.com/dyfotzbb.json"
+                        trigger="loop"
+                        delay="1000"
+                        stroke="light"
+                        colors="primary:#ee6d66,secondary:#08a88a"
+                        style="width:80px;height:80px">
+                    </lord-icon>
                 </div>
                 <hr class="w-100 mb-1">
             </div>
@@ -196,29 +194,55 @@
         <div class="container-fluid about px-5">
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center p-3">
-                    <h3 class="pb-3 mb-md-0 text-center">Sign Up To Our Newsletter!</h3>
-                    <!-- Form -->
-                    <div class="input-group news-input flex-column" id="custom-width">
-                        <input type="text" class="form-control w-100" placeholder="Enter Email" />
-                        <button class="btn btn-dark btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#subscribe">Submit</button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="subscribe" tabindex="-1" aria-labelledby="subscribeto" aria-hidden="true">
-                            <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h1 class="text-success" id="subscribe">Success!</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                <p class="text-dark">Thank you for subscribing to our newsletter, we hope you enjoy our creative content, be sure to also follow us on social media.</p>
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                                </div>
+                    <h4 class="pb-3 mb-md-0 text-center">Sign Up To Our Newsletter!</h4>
+                    <!-- Mailchimp Form -->
+                    <div id="mc_embed_shell">
+                        <div id="mc_embed_signup">
+                          <form action="https://gmail.us13.list-manage.com/subscribe/post?u=3603456f331f0f96c75dbf4e4&amp;id=578cbe869e&amp;f_id=004e5be1f0"
+                                method="post"
+                                id="mc-embedded-subscribe-form"
+                                name="mc-embedded-subscribe-form"
+                                class="validate"
+                                target="_blank">
+                            <div id="mc_embed_signup_scroll">
+                              <div class="mc-field-group">
+                                <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+                                <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required value="">
+                              </div>
+                              <div id="mce-responses" class="clear">
+                                <div class="response" id="mce-error-response" style="display: none;"></div>
+                                <div class="response" id="mce-success-response" style="display: none;"></div>
+                              </div>
+                              <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                                <input type="text" name="b_3603456f331f0f96c75dbf4e4_578cbe869e" tabindex="-1" value="">
+                              </div>
+                              <div class="clear">
+                                <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                              </div>
                             </div>
-                            </div>
+                          </form>
                         </div>
-                    </div>
+                        <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+                        <script type="text/javascript">
+                          (function($) {
+                            window.fnames = new Array();
+                            window.ftypes = new Array();
+                            fnames[0] = 'EMAIL';
+                            ftypes[0] = 'email';
+                            fnames[1] = 'FNAME';
+                            ftypes[1] = 'text';
+                            fnames[2] = 'LNAME';
+                            ftypes[2] = 'text';
+                            fnames[3] = 'ADDRESS';
+                            ftypes[3] = 'address';
+                            fnames[4] = 'PHONE';
+                            ftypes[4] = 'phone';
+                            fnames[5] = 'BIRTHDAY';
+                            ftypes[5] = 'birthday';
+                          }(jQuery));
+                          var $mcj = jQuery.noConflict(true);
+                        </script>
+                      </div>
                 </div>
                 <div class="col-lg-6 d-flex flex-column justify-content-center py-5 mt-lg-0">
                     <h4 class="mx-auto mb-5">Follow us!</h4>
