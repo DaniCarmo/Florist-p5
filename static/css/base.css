@@ -221,6 +221,10 @@ input[name='q']::placeholder {
 
 /* events page */
 
+.events .card:hover {
+    background-color: #eff7f5;
+}
+
 .events-container {
     display: flex;
     align-items: center;
@@ -287,8 +291,12 @@ input[name='q']::placeholder {
     }
 
     .home-container h1 {
-        font-size: 45px;
+        font-size: 40px;
       }
+
+    .lead {
+        font-size: 17px;
+    }
 }
 
 @media (max-width: 600px) {
