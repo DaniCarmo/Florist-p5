@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-<div id="main">
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -11,52 +11,54 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container home-container pt-5">
-        <div class="row pt-5">
-            <div class="col-12 col-md-6 my-auto text-center pt-5">
-                <h1 class="display-4 text-black py-5">Give The Gift Of Joy</h1>
-                <div class="my-5 pb-5">
-                    <h4><a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a></h4>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 my-auto text-center pt-5">
-                <h2 class="display-4 text-black py-5">Free Delivery For Members!</h2>
-                <div class="my-5 pb-5">
-                    <h4><a href="" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Sign Up</a></h4>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid about my-5">
-            <div class="row">
-                <div class="col-lg-6 d-flex flex-column justify-content-center pt-5 mt-lg-0">
-                    <h4 class="mx-auto mb-5">About Us</h4>
-                    <p class="lead px-4 justify-content-center">
-                        Welcome to The Happy Florist, where beauty meets botanical artistry. Nestled in the heart of our community, we pride ourselves on crafting exquisite floral arrangements that capture the essence of nature's fleeting moments. With a passion for creativity and an unwavering commitment to quality, our team of skilled florists meticulously hand-selects each bloom, ensuring every bouquet is a masterpiece of color, texture, and fragrance. Whether you're celebrating life's joyful milestones, expressing heartfelt sentiments, or simply adding a touch of elegance to your surroundings, The Happy Florist is here to transform your vision into breathtaking reality.
-                    </p>
-                    <div class="row justify-content-around">
-                        <div class="col-4 text-center">
-                            <img src="{% static 'media/staff1.webp' %}" alt="Staff Member 1" class="img-fluid rounded-circle mb-2">
-                            <p>Mary Jane</p>
-                        </div>
-                        <div class="col-4 text-center">
-                            <img src="{% static 'media/staff2.webp' %}" alt="Staff Member 2" class="img-fluid rounded-circle mb-2">
-                            <p>Chloe Dillane</p>
-                        </div>
-                        <div class="col-4 text-center">
-                            <img src="{% static 'media/staff3.webp' %}" alt="Staff Member 3" class="img-fluid rounded-circle mb-2">
-                            <p>Clara Smith</p>
-                        </div>
+<div class="flex-wrapper">
+    <div id ="main" class="flex-grow-1">
+        <div class="container home-container pt-5">
+            <div class="row pt-5">
+                <div class="col-12 col-md-6 my-auto text-center pt-5">
+                    <h1 class="display-4 text-black py-5">Give The Gift Of Joy</h1>
+                    <div class="my-5 pb-5">
+                        <h4><a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Shop Now</a></h4>
                     </div>
                 </div>
-                <div class="col-lg-6 d-flex flex-column justify-content-center pt-5 mt-lg-0">
-                    <img class="image-fluid rounded"
-                            src="{% static 'media/home-flowers.webp' %}"
-                            alt="front of florist shop">
+                <div class="col-12 col-md-6 my-auto text-center pt-5">
+                    <h2 class="display-4 text-black py-5">Free Delivery For Members!</h2>
+                    <div class="my-5 pb-5">
+                        <h4><a href="" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Sign Up</a></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid about my-5">
+                <div class="row">
+                    <div class="col-lg-6 d-flex flex-column justify-content-center pt-5 mt-lg-0">
+                        <h4 class="mx-auto mb-5">About Us</h4>
+                        <p class="lead px-4 justify-content-center">
+                            Welcome to The Happy Florist, where beauty meets botanical artistry. Nestled in the heart of our community, we pride ourselves on crafting exquisite floral arrangements that capture the essence of nature's fleeting moments. With a passion for creativity and an unwavering commitment to quality, our team of skilled florists meticulously hand-selects each bloom, ensuring every bouquet is a masterpiece of color, texture, and fragrance. Whether you're celebrating life's joyful milestones, expressing heartfelt sentiments, or simply adding a touch of elegance to your surroundings, The Happy Florist is here to transform your vision into breathtaking reality.
+                        </p>
+                        <div class="row justify-content-around">
+                            <div class="col-4 text-center">
+                                <img src="{% static 'media/staff1.webp' %}" alt="Staff Member 1" class="img-fluid rounded-circle mb-2">
+                                <p>Mary Jane</p>
+                            </div>
+                            <div class="col-4 text-center">
+                                <img src="{% static 'media/staff2.webp' %}" alt="Staff Member 2" class="img-fluid rounded-circle mb-2">
+                                <p>Chloe Dillane</p>
+                            </div>
+                            <div class="col-4 text-center">
+                                <img src="{% static 'media/staff3.webp' %}" alt="Staff Member 3" class="img-fluid rounded-circle mb-2">
+                                <p>Clara Smith</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-flex flex-column justify-content-center pt-5 mt-lg-0">
+                        <img class="image-fluid rounded"
+                                src="{% static 'media/home-flowers.webp' %}"
+                                alt="front of florist shop">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>   
+    </div>   
     <footer class ="pt-5">
         <div class="container-fluid about mt-5 px-5">
             <div class="row">
@@ -109,4 +111,5 @@
             </div>
         </div>
     </footer>
+</div>
 {% endblock %}

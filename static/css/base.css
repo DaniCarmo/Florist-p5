@@ -10,15 +10,20 @@ header {
 body {
     background: url('/static/media/flower_background.webp') no-repeat center center fixed;
     background-size: cover;
-    /*height: calc(100vh - 164px);*/
     font-family:"Quicksand", sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100%;
 }
 
-#main{
-    flex:1;
+#main {
+    flex: 1;
+}
+
+.flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 #main-nav a:hover {
@@ -211,6 +216,18 @@ input[name='q']::placeholder {
 
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
+}
+
+/* events page */
+
+.events-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.events-container .icon-container {
+    margin-left: 10px;
 }
 
 /* toasts */
