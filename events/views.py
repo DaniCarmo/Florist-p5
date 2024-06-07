@@ -14,7 +14,7 @@ def event_list(request):
     return render(request, "events/events.html", {"events": events})
 
 
-@login_required
+#@login_required
 def add_event(request):
     """
     Allows admin to add event
@@ -32,7 +32,7 @@ def add_event(request):
     return render(request, "events/add_event.html", {"event_form": event_form})
 
 
-@login_required
+#@login_required
 def delete_event(request, event_id):
     """
     Allows admin to delete event
@@ -44,7 +44,7 @@ def delete_event(request, event_id):
         return redirect("events")
 
 
-@login_required
+#@login_required
 def update_event(request, event_id):
     """
     Allows admin to edit event
