@@ -40,6 +40,7 @@
                                         <p class="card-text">Time: {{ event.time }}</p>
                                         <p class="card-text">Location: {{ event.location }}</p>
                                     </div>
+                                <button class="btn btn-dark w-50 mt-3">Register</button>
                                     {% if user.is_staff %}
                                     <!-- Delete Button -->
                                     <form method="post" action="{% url 'delete_event' event.id %}" id="delete-form-{{ event.id }}">
@@ -121,16 +122,6 @@
                 <hr class="w-100 mb-1">
                 <div class="gallery-container d-flex align-items-center justify-content-center">
                     <h3 class="logo-font my-4">Check out our Event Gallery!</h3>
-                    <span class="icon-container">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/dyfotzbb.json"
-                            trigger="loop"
-                            delay="1000"
-                            stroke="light"
-                            colors="primary:#ee6d66,secondary:#08a88a"
-                            style="width:150px;height:150px">
-                        </lord-icon>
-                    </span>
                 </div>
                 <hr class="w-100 mb-1">
             </div>
