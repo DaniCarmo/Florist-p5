@@ -1,50 +1,68 @@
 [
     {
-        "id": 1,
-        "title": "Event One",
-        "description": "Description for Event One",
-        "date": "2024-07-01",
-        "time": "1.15pm",
-        "location": "Location One"
+        "model": "events.event",
+        "pk": 1,
+        "fields": {
+            "title": "Event One",
+            "description": "Description for Event One",
+            "date": "2024-07-01",
+            "time": "1.15pm",
+            "location": "Location One"
+        }
     },
     {
-        "id": 2,
-        "title": "Event Two",
-        "description": "Description for Event Two",
-        "date": "2024-08-15",
-        "time": "2.00pm",
-        "location": "Location Two"
+        "model": "events.event",
+        "pk": 2,
+        "fields": {
+            "title": "Event Two",
+            "description": "Description for Event Two",
+            "date": "2024-08-15",
+            "time": "2.00pm",
+            "location": "Location Two"
+        }
     },
     {
-        "id": 3,
-        "title": "Event Three",
-        "description": "Description for Event Three",
-        "date": "2024-08-15",
-        "time": "11.30am",
-        "location": "Location Three"
+        "model": "events.event",
+        "pk": 3,
+        "fields": {
+            "title": "Event Three",
+            "description": "Description for Event Three",
+            "date": "2024-08-15",
+            "time": "11.30am",
+            "location": "Location Three"
+        }
     },
     {
-        "id": 4,
-        "title": "Event Four",
-        "description": "Description for Event Four",
-        "date": "2024-07-01",
-        "time": "3.45pm",
-        "location": "Location Four"
+        "model": "events.event",
+        "pk": 4,
+        "fields": {
+            "title": "Event Four",
+            "description": "Description for Event Four",
+            "date": "2024-07-01",
+            "time": "3.45pm",
+            "location": "Location Four"
+        }
     },
     {
-        "id": 5,
-        "title": "Event Five",
-        "description": "Description for Event Five",
-        "date": "2024-08-15",
-        "time": "10.00am",
-        "location": "Location Five"  
+        "model": "events.event",
+        "pk": 5,
+        "fields": {
+            "title": "Event Five",
+            "description": "Description for Event Five",
+            "date": "2024-08-15",
+            "time": "10.00am",
+            "location": "Location Five"
+        }
     },
     {
-        "id": 6,
-        "title": "Event Six",
-        "description": "Description for Event Six",
-        "date": "2024-07-01",
-        "time": "12.30pm",
-        "location": "Location Six"
+        "model": "events.event",
+        "pk": 6,
+        "fields": {
+            "title": "Event Six",
+            "description": "Description for Event Six",
+            "date": "2024-07-01",
+            "time": "12.30pm",
+            "location": "Location Six"
+        }
     }
 ]
