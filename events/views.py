@@ -23,12 +23,16 @@ def add_event(request):
         event_form = EventForm(request.POST)
         if event_form.is_valid():
             event_form.save()
-            messages.add_message(
-                request, messages.SUCCESS, "Event has been added successfully!"
-            )
+            messages.success(request, "Event has been added successfully!")
             return redirect("events")
+        else:
+            messages.error(request, "Failed to add event. Please ensure the form is valid.")
     else:
         event_form = EventForm()
+
+    context = {
+        "event_form": event_form,
+    }
     return render(request, "events/add_event.html", {"event_form": event_form})
 
 
