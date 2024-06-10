@@ -45,7 +45,7 @@ def delete_event(request, event_id):
 
 
 #@login_required
-def update_event(request, event_id):
+def edit_event(request, event_id):
     """
     Allows admin to edit event
     """
