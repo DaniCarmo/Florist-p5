@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from .models import Event
 from .forms import EventForm
@@ -41,11 +42,18 @@ def delete_event(request, event_id):
     """
     Allows admin to delete event
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'Oops! Sorry, only admins can perform this action.')
+        return redirect(reverse('events'))
+    
     event = get_object_or_404(Event, id=event_id)
     if request.method == "POST":
         event.delete()
-        messages.add_message(request, messages.SUCCESS, "Event deleted!")
-        return redirect("events")
+        messages.success(request, 'Event deleted!')
+        return redirect(reverse('events'))
+    else:
+        messages.error(request, 'Invalid request method.')
+        return redirect(reverse("events"))
 
 
 @login_required
@@ -53,10 +61,25 @@ def edit_event(request, event_id):
     """
     Allows admin to edit event
     """
+    if not request.user.is_superuser:
+        messages.error(request, 'Oops! Sorry, only admins can perform this action.')
+        return redirect(reverse('events'))
+    
     event = get_object_or_404(Event, id=event_id)
     if request.method == "POST":
         event_form = EventForm(data=request.POST, instance=event)
         if event_form.is_valid():
             event_form.save()
-            messages.add_message(request, messages.SUCCESS, "Event Updated!")
-            return redirect("events")
+            messages.success(request, 'Event updated!')
+            return redirect(reverse('events'))
+        else:
+            messages.error(request, 'Failed to update event. Please ensure the form is valid.')
+    else:
+        event_form = EventForm(instance=event)
+        
+    template = 'events/edit_event.html'
+    context = {
+        'event_form': event_form,
+        'event': event,
+    }
+    return render(request, template, context)
