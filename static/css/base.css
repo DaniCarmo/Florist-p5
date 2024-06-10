@@ -281,7 +281,7 @@ input[name='q']::placeholder {
     }
 }
 
-@media (min-width: 992px) and (max-width: 163px) {
+@media (min-width: 992px) and (max-width: 1286px) {
     .header-container {
         padding-top: 220px;
     }

@@ -13,3 +13,5 @@ Disallow: /bag/
 Disallow: /profiles/
 Disallow: /search/
 Disallow: /cart/
+
+Sitemap: https://the-happy-florist-5c44ce792179.herokuapp.com/sitemap.xml
