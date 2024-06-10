@@ -110,8 +110,25 @@
                             ftypes[5] = 'birthday';
                           }(jQuery));
                           var $mcj = jQuery.noConflict(true);
+
+                          // Ensure responses are shown correctly
+                            $(document).ready(function() {
+                            $('#mc-embedded-subscribe-form').submit(function(e) {
+                                var emailField = $('#mce-EMAIL').val();
+                                if (emailField === '' || !emailField.includes('@')) {
+                                $('#mce-error-response').html('Please enter a valid email address').show();
+                                return false;
+                                } else {
+                                $('#mce-error-response').hide();
+                                // Here we simulate the success response for demonstration purposes
+                                setTimeout(function() {
+                                    $('#mce-success-response').show();
+                                }, 1000); // Adjust the delay as needed
+                                }
+                            });
+                            });
                         </script>
-                      </div>
+                    </div>
                 </div>
                 <div class="col-lg-6 d-flex flex-column justify-content-center py-5 mt-lg-0">
                     <h4 class="mx-auto mb-5">Follow us!</h4>

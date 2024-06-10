@@ -12,9 +12,9 @@
 {% block content %}
 <div class="flex-wrapper">
     <div id="main" class="flex-grow-1 pb-5 mb-5">
-        <div class="container-fluid pt-5">
-            <div class="row pt-5 mt-1">
-                <div class="col text-center mt-5 bg-white">
+        <div class="container-fluid header-padding">
+            <div class="row mt-1 header-small-mobile">
+                <div class="col text-center bg-white">
                     <hr class="w-100 mb-1">
                     <h2 class="logo-font my-4 text-center">Events</h2>
                     <hr class="w-100 mb-1">
@@ -241,6 +241,22 @@
                             ftypes[5] = 'birthday';
                           }(jQuery));
                           var $mcj = jQuery.noConflict(true);
+                          // Ensure responses are shown correctly
+                            $(document).ready(function() {
+                            $('#mc-embedded-subscribe-form').submit(function(e) {
+                                var emailField = $('#mce-EMAIL').val();
+                                if (emailField === '' || !emailField.includes('@')) {
+                                $('#mce-error-response').html('Please enter a valid email address').show();
+                                return false;
+                                } else {
+                                $('#mce-error-response').hide();
+                                // Here we simulate the success response for demonstration purposes
+                                setTimeout(function() {
+                                    $('#mce-success-response').show();
+                                }, 1000);
+                                }
+                            });
+                            });
                         </script>
                       </div>
                 </div>

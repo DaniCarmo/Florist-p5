@@ -281,6 +281,18 @@ input[name='q']::placeholder {
     }
 }
 
+@media (max-width: 1287px) {
+    .header-padding {
+        padding-top: 5px;
+    }
+}
+
+@media (max-width: 991px) {
+    .header-padding {
+        margin-top: 5px;
+    }
+}
+
 @media (max-width: 767px) {
     .home-container {
         padding-top: 170px;
@@ -317,5 +329,11 @@ input[name='q']::placeholder {
     .social-icon {
         height: 2rem;
         margin: .5rem;
+    }
+}
+
+@media (max-width: 403px) {
+    .header-small-mobile {
+        margin-top: 5px;
     }
 }
