@@ -1,0 +1,15 @@
+User-agent: *
+# Allow search engines to index these sections
+Allow: /home/
+Allow: /products/
+Allow: /categories/
+Allow: /events/
+Allow: /static/
+
+# Disallow search engines from indexing these sections
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /bag/
+Disallow: /profiles/
+Disallow: /search/
+Disallow: /cart/
