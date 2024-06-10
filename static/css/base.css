@@ -285,6 +285,10 @@ input[name='q']::placeholder {
     .header-container {
         padding-top: 220px;
     }
+
+    .home-container {
+        padding-top: 220px;
+    }
 }
 
 @media (min-width: 403px) and (max-width: 991px) {
@@ -300,10 +304,6 @@ input[name='q']::placeholder {
 }
 
 @media (max-width: 767px) {
-    .home-container {
-        padding-top: 170px;
-    }
-
     .home-container h1 {
         font-size: 40px;
       }
