@@ -267,7 +267,7 @@ input[name='q']::placeholder {
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1287px) {
     .fixed-top-desktop-only {
         position: fixed;
         top: 0;
@@ -281,15 +281,21 @@ input[name='q']::placeholder {
     }
 }
 
-@media (max-width: 1287px) {
-    .header-padding {
-        padding-top: 5px;
+@media (min-width: 992px) and (max-width: 163px) {
+    .header-container {
+        padding-top: 220px;
     }
 }
 
-@media (max-width: 991px) {
-    .header-padding {
-        margin-top: 5px;
+@media (min-width: 403px) and (max-width: 991px) {
+    .header-container {
+        padding-top: 110px;
+    }
+}
+
+@media (max-width: 402px) {
+    .header-container {
+        padding-top: 150px;
     }
 }
 
@@ -329,11 +335,5 @@ input[name='q']::placeholder {
     .social-icon {
         height: 2rem;
         margin: .5rem;
-    }
-}
-
-@media (max-width: 403px) {
-    .header-small-mobile {
-        margin-top: 5px;
     }
 }
