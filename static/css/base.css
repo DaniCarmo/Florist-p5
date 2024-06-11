@@ -134,6 +134,11 @@ footer {
     border-color:#53877a;
 }
 
+.product-image {
+    max-height: 500px;
+    width: auto;
+}
+
 a.category-badge > span.badge:hover {
     background: #212529 !important;
     color: #fff !important;

@@ -128,6 +128,9 @@ As the site owner, I want the program to:
 
 All user stories are available to view [here](https://github.com/users/DaniCarmo/projects/3) on Github.
 
+(screenshot of user stories)
+
+
 (screenshot of kanban)
 
 
@@ -466,7 +469,16 @@ The code was also checked throughout the project where errors showed up on Visua
 
 Below are screenshots fromm Goofle's lighthouse testing showing performance levels of the site pages.
 
-(screenshots - multiple)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/lighthouse-home.png?raw=true)
+
+
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/lighthouse-products.png?raw=true)
+
+
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/lighthouse-product-detail.png?raw=true)
+
+
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/lighthouse-events.png?raw=true)
 
 
 
