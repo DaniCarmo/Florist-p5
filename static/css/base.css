@@ -97,7 +97,7 @@ body {
 
 .display-4 {
     background-color: #fff;
-    box-shadow: 5px 5px 5px 0px #c9e5de;
+    box-shadow: 4px 4px 4px 4px #c9e5de;
     font-size: 3rem;
 }
 
@@ -112,6 +112,7 @@ body {
 .about {
     background-color: #eff7f5;
     font-family:"Quicksand", sans-serif;
+    box-shadow: 4px 4px 4px 0px gray;
 }
 
 .about h4 {
