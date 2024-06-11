@@ -39,20 +39,20 @@
                                         <p class="card-text">Date: {{ event.date }}</p>
                                         <p class="card-text">Time: {{ event.time }}</p>
                                         <p class="card-text">Location: {{ event.location }}</p>
-                                        <button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#register">Register</button>
+                                        <!-- Modal Btn -->
+                                        <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#register">Register</button>
                                         <!-- Modal -->
                                             <div class="modal fade" id="register" tabindex="-1" aria-labelledby="register" aria-hidden="true">
                                                 <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
+                                                    <div class="modal-content text-center">
+                                                        <div class="modal-header justify-content-center">
                                                             <h1 class="text-success" id="register">Success!</h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <p class="text-dark">Thank you for registering for this event, we will send a confirmation email shortly.</p>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
                                                         </div>
                                                     </div>
                                                 </div>
