@@ -128,10 +128,10 @@ As the site owner, I want the program to:
 
 All user stories are available to view [here](https://github.com/users/DaniCarmo/projects/3) on Github.
 
-(screenshot of user stories)
+![screenshot of user stories](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/issues-user-stories.png?raw=true)
 
 
-(screenshot of kanban)
+![screenshot of kanban](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/kanban.png?raw=true)
 
 
 
