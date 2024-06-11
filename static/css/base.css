@@ -287,9 +287,10 @@ input[name='q']::placeholder {
         padding-top: 220px;
     }
 
+/* delete
     .home-container {
         padding-top: 220px;
-    }
+    } */
 }
 
 @media (min-width: 403px) and (max-width: 991px) {
