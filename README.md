@@ -154,13 +154,13 @@ Mobile:
 
 The colors mainly revolve around the background image consisting of pastel greens, reds and yellow. These colors compliment each other and give the site an earthy and elegant tone which is in keeping with the vibe of a florist shop. The header and footer are a shade of pastel green taken from the background image and the home image of the outside of a florist also reflects these floral and earthy tones. The pastel green is used throughout the site, and the dark text and buttons serve as a nice contrast.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/background-img.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/background-img.png?raw=true)
 
 
 
 The fonts used throughout the site are Quicksand and Dancing Script. The first being used for the main home page banner texts as a call to action, as well as the about us section and product details text. While the more fluid and fun Dancing Script is used for the site name and headings. These fonts provided a great contrast for the user to identify sections and work well together, as both are rounded in nature and have similar weight. Quicksand is more uniform while Dancing Script is reminiscent of florals and floats across the page.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/fonts.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/fonts.png?raw=true)
 
 
 
@@ -178,20 +178,20 @@ The fonts used throughout the site are Quicksand and Dancing Script. The first b
 
 Allows user to navigate through the site and also exapnds on smaller devices for better ux design.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/navbar.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/navbar.png?raw=true)
 
 
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/navbar-collapsed.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/navbar-collapsed.png?raw=true)
 
 
 The expanded and collapsed navbars also have dropdown menues:
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/navbar-options.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/navbar-options.png?raw=true)
 
 
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/navbar-collapsed-menu.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/navbar-collapsed-menu.png?raw=true)
 
 
 
@@ -203,7 +203,7 @@ The landing page with a call to action and a refreshing floral backgorund image.
 
 
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/homepage.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/homepage.png?raw=true)
 
 
 
@@ -213,7 +213,7 @@ The landing page with a call to action and a refreshing floral backgorund image.
 
 For users to search by word or feature.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/searchbar.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/searchbar.png?raw=true)
 
 
 
@@ -223,19 +223,19 @@ For users to search by word or feature.
 
 Django Allauth register page, allows users to make an account.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/signup.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/signup.png?raw=true)
 
 
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/login.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/login.png?raw=true)
 
 
 All users signing up for an account will receive a verification link to confirm their email for security purposes, screenshot below shows email received in to test email account:
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/email-verification.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/email-verification.png?raw=true)
 
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/emails-received.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/emails-received.png?raw=true)
 
 
 
@@ -247,14 +247,14 @@ Users with an account can avail of free delivery on all orders, no min. Price, t
 Screenshot below shows user without account/not logged in and has a 10% delivery charge applied:
 
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/no-free-delivery.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/no-free-delivery.png?raw=true)
 
 
 
 Screenshot below shows user who is logged in to their account and has no delivery fee applied:
 
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/user-free-delivery.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/user-free-delivery.png?raw=true)
 
 
 
@@ -264,7 +264,7 @@ Screenshot below shows user who is logged in to their account and has no deliver
 
 Section for users to get an insight in to the business and recognise the faces of staff to provide a more friendly user experience.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/about.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/about.png?raw=true)
 
 
 
@@ -274,15 +274,15 @@ Section for users to get an insight in to the business and recognise the faces o
 
 Users can subscribe to The Happy Florist's newsletter to stay up to date with news, events and offers.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/footer.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/footer.png?raw=true)
 
 
 The sign up form also contains error and success messages for user:
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/newsletter-success.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/newsletter-success.png?raw=true)
 
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/newsletter-error.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/newsletter-error.png?raw=true)
 
 
 
@@ -292,7 +292,7 @@ The sign up form also contains error and success messages for user:
 
 This page has many versions based on user searches and sorting parameters. Users can see available products sorted here with image, product name, price, and average rating.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/products-list.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/products-list.png?raw=true)
 
 
 
@@ -302,10 +302,10 @@ This page has many versions based on user searches and sorting parameters. Users
 
 Here users can view a specific product details and pricing. This will give a full review of the product, and the user can also select sizes for flower bouquets. The default price and size is set to ‘Medium’ bouquet sizes, and when the user selects ‘Small’ or ‘Large’ from the dropdown then the price automatically updates to reflect size. For other products such as balloons and sweets, there is one set price.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/products-detail2.png?raw=true))
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/products-detail2.png?raw=true)
 
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/products-detail.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/products-detail.png?raw=true)
 
 
 
@@ -315,10 +315,10 @@ Here users can view a specific product details and pricing. This will give a ful
 
 Here staff and super users can add new products and set all elements of the products.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/admin-delete-edit.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/admin-delete-edit.png?raw=true)
 
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/add-product.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/add-product.png?raw=true)
 
 
 
@@ -328,7 +328,10 @@ Here staff and super users can add new products and set all elements of the prod
 
 The events page allows users to view upcoming events on the events dashboard and click to register for an event.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/fonts.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/fonts.png?raw=true)
+
+
+![screenshot]()
 
 
 
@@ -338,7 +341,7 @@ The events page allows users to view upcoming events on the events dashboard and
 
 Users can view past events via the gallery carousel on the events page, to get a  feel for what the events may be like.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/gallery.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/gallery.png?raw=true)
 
 
 
@@ -348,20 +351,20 @@ Users can view past events via the gallery carousel on the events page, to get a
 
 The site admin/staff can log in here to add, delete or update and event.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/admin-events.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/admin-events.png?raw=true)
 
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/event-added.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/event-added.png?raw=true)
 
 
 #### Order Confirmation
 
 Users are brought to a confirmation page to confirm their order has been placed successfully, as well as receining a confirmation email.
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/order-success.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/order-success.png?raw=true)
 
 
-(https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/order-email.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/order-email.png?raw=true)
 
 
 
@@ -369,7 +372,7 @@ Users are brought to a confirmation page to confirm their order has been placed 
 
 I created a Facebook business page for users to follow, interact and get in touch with the business.
 
-(screenshot)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/Screenshot%20FB.png?raw=true)
 
 
 
@@ -435,7 +438,7 @@ Features to be implemented may include:
 
 
 
-The site pages have been tested on various screen sizes to ensure that the content is responsive and all screenshots can be viewed [here](link to testing folder with screenshots)
+The site pages have been tested on various screen sizes to ensure that the content is responsive and all screenshots can be viewed [here](https://github.com/DaniCarmo/Florist-p5/tree/main/static/testing)
 
 
 
@@ -582,25 +585,25 @@ To deploy the project through Heroku I followed these steps:
 
 
 
-Create a Heroku account.
+1. Create a Heroku account.
 
-Sign up with a student account for credits. (optional)
+2. Sign up with a student account for credits. (optional)
 
-Once logged in, select create a new app.
+3. Once logged in, select create a new app.
 
-Select an app name and region EU.
+4. Select an app name and region EU.
 
-Select deployment method as connect to github.
+5. Select deployment method as connect to github.
 
-Find the desired repo from your github.
+6. Find the desired repo from your github.
 
-Enable automatic deploys and select the main branch.
+7. Enable automatic deploys and select the main branch.
 
-In the settings tab select reveal config vars and Input the required hidden variables, such as Stripe keys, AWS keys, Database url, and your project’s secret key.
+8. In the settings tab select reveal config vars and Input the required hidden variables, such as Stripe keys, AWS keys, Database url, and your project’s secret key.
 
-Navigate to the 'Deploy' page and 'GitHub' from the 'Deployment method' section.
+9. Navigate to the 'Deploy' page and 'GitHub' from the 'Deployment method' section.
 
-Select deploy and once built you will see a notice on Heroku that build was successful and you click on “Open App” to view the live site.
+10. Select deploy and once built you will see a notice on Heroku that build was successful and you click on “Open App” to view the live site.
 
 
 
