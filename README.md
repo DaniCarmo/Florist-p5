@@ -58,9 +58,19 @@ View the live site [here](https://the-happy-florist-5c44ce792179.herokuapp.com/)
 
       * [Order Confirmation](#order-confirmation)
 
-      * [Facebook Page](#facebook)
-
    * [Future Features](#future-features)
+
+* [Marketing Strategies](#marketing-strategies)
+
+   * [Overview](#overview)
+
+   * [Key Marketing Strategies](#key-strategies)
+
+   * [Meta Tags for SEO](#meta-tags)
+
+   * [Facebook Page](#facebook)
+
+   * [Newsletter](#newsletter)
 
 * [Technologies Used](#technologies-used)
 
@@ -69,8 +79,6 @@ View the live site [here](https://the-happy-florist-5c44ce792179.herokuapp.com/)
      * [Lighthouse Testing](#lighthouse-testing)
 
      * [Manual Testing](#manual-testing)
-
-     * [Automated Testing](#automated-testing)
 
      * [Unfixed Bugs](#unfixed-bugs)
 
@@ -138,16 +146,9 @@ All user stories are available to view [here](https://github.com/users/DaniCarmo
 ### Wireframes
 
 
+Wireframes were created on Miro, example below and all designs available to view [here]()
 
-Desktop:
-
-
-
-Tablet:
-
-
-
-Mobile:
+![screenshot of wireframe]()
 
 
 
@@ -371,14 +372,6 @@ Users are brought to a confirmation page to confirm their order has been placed 
 
 
 
-#### Facebook Page
-
-I created a Facebook business page for users to follow, interact and get in touch with the business.
-
-![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/Screenshot%20FB.png?raw=true)
-
-
-
 ### Future Features
 
 
@@ -391,7 +384,45 @@ Features to be implemented may include:
 
 * Create a user-friendly event sign up page, where user can enter their details and chose events from a dropdown schedule and they will receive a confirmation email invite so it will sync up with their personal calendars on their phone, PC, etc.
 
+* Build a mailing list to send regular newsletters via mailchimp.
+
 * More social media features to encourage a larger online presence and support, such as an Instagram and Twitter as well as a YouTube chanel to show events and demonstrations.
+
+
+
+## Marketing
+
+
+### Overview
+The Happy Florist aims to connect directly with consumers who value fresh, hbeautifully arranged, and locally sourced flowers and other products. To achieve this, our marketing strategy focuses on building a strong online presence, engaging with our audience through various digital channels, and leveraging the power of social media.
+
+
+### Key Marketing Strategies
+
+  1. **Social Media Engagement via Facebook:** Create and maintain an active Facebook page where we share updates, promotions, and engaging content such as classes and events related to flower arrangment and coffee mornings, and sneak peeks of the behind-the-scenes of running a busy florist. Encourage customer interactions through comments, reviews, and sharing user-generated content.
+    
+  2. **Content Marketing:** Develop an events page on our website featuring events and a gallery of past events and classes, and sharing these posts across social media platforms to drive traffic to our site.
+
+  3. **Email Marketing:** Build a mailing list to send regular newsletters with exclusive offers, new product announcements, and personalized recommendations. Include visually appealing content and incentives for subscribers to make repeat purchases.
+
+  4. **SEO and Paid Advertising:** Optimize our website with targeted keywords and meta tags to improve search engine rankings and increase organic traffic. Implement Google Ads and Facebook Ads to target potential customers based on their interests and online behavior.
+
+
+### Meta Tags for SEO
+```html
+  <meta name="keywords" content="County Kerry, Ireland, SouhtWest, florist, flower arrangement, weddings, events, anniversary, celebration, floral design, flower delivery, floral gifts, bridal flowers, special occasions, floral decor, flower shop, local florist, flower arrangements for events, flower bouquets, floral centerpieces, floral decorations, wedding flowers, floral arrangements for weddings">
+  ```
+
+
+### Facebook Page
+
+[The Happy florist](https://www.facebook.com/profile.php?id=61560638586222)
+
+![Facebook Page](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/Screenshot%20FB.png?raw=true)
+
+
+### Newsletter
+Using integration with [Mailchimp](https://mailchimp.com/?currency=EUR).
 
 
 
@@ -419,14 +450,6 @@ Features to be implemented may include:
 
    * To create the wireframes and design at planning stage.
 
-* [Quickbase](https://www.quickbase.com/).
-
-   * Used to create a database schema during planning stage.
-
-* [Heroku](https://dashboard.heroku.com/apps).
-
-   * Used to host the website.
-
 * [Amazon Web Services](https://dashboard.heroku.com/apps).
 
    * Used to host the static files.
@@ -447,19 +470,20 @@ The site pages have been tested on various screen sizes to ensure that the conte
 
 The code has been tested using:
 
-[W3 HTML validator](https://validator.w3.org/) - no errors
-
+[W3 HTML validator](https://validator.w3.org/) - A few minor error were flagged related to how the tool reads repeated templates and structure from the Boutique Ado walkthrough project where this project is based on. Throughout manual testing, it was identified these minor error have no impact when running e-commerce application.
 
 
 [W3 CSS validator](https://jigsaw.w3.org/css-validator/) - no errors
 
 
-
 [jshint](https://jshint.com/) - no errors
 
 
+[CI Python Linter](https://pep8ci.herokuapp.com/) - a few minor warnings due to whitespace and lines too long, but nothing that affected the site itself or the functionality.
 
-The code was also checked throughout the project where errors showed up on Visual Studios regarding lines too long and white space trailing, and these were fixed as they arose, as well as ongoing debugging in Chrome Developer Tools, Stack Overflow, Django documentation, W3Schools and Chat GBT.
+
+
+The code was also checked throughout the project where errors showed up on Visual Studios and these were fixed as they arose, as well as ongoing debugging in Chrome Developer Tools, Stack Overflow, Django documentation, W3Schools and Chat GBT.
 
 
 
@@ -527,11 +551,6 @@ Ran each test mentioned in the table below multiple times and each action execut
 | Checkout - stripe form - incorrect info                     | complete the checkout form and submit with missing info - click on complete order button                                                      | user enters info, clicks on complete order and receives error message showing what sections are required in red                                                                          | Successful |
 | Checkout confirmation page                                  | click on complete order in the shopping cart                                                                                                  | user is brought to the checkout confirmation page where they are provided with their order details                                                                                       | Successful |
 | Order confirmation email                                    | complete online order successfully                                                                                                            | user receives an email from happyfloristtralee@gmail.com with order details and order confirmation                                                                                       | Successful |
-
-
-### Automated Testing
-
-
 
 
 
@@ -623,7 +642,7 @@ To deploy the project through Heroku I followed these steps:
 
 
 
-* User the Code Institute’s P5 sample project, Boutique Ado, as a guide and basic template for the site.
+* Used the Code Institute’s P5 sample project, Boutique Ado, as a guide and basic template for the site.
 
 * Followed tips and troubleshooting throughout the project on Stackoverflow [stackoverflow](https://stackoverflow.blog/), Python.org [python-org](https://www.python.org/) and w3Schools[w3schools](https://www.w3schools.com/).
 
