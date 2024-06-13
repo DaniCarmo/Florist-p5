@@ -4,12 +4,12 @@ from .models import Wishlist
 from .forms import WishlistForm
 from products.models import Product
 
-@login_required
+
 def wishlist_list(request):
     wishlists = Wishlist.objects.filter(user=request.user)
     return render(request, 'wishlist_list.html', {'wishlists': wishlists})
 
-@login_required
+
 def wishlist_add(request, product_id):
     product = get_object_or_404(Product, id=product_id)
 
@@ -26,7 +26,7 @@ def wishlist_add(request, product_id):
 
     return render(request, 'wishlist_form.html', {'form': form})
 
-@login_required
+
 def wishlist_edit(request, id):
     wishlist_item = get_object_or_404(Wishlist, id=id, user=request.user)
     if request.method == 'POST':
@@ -38,7 +38,7 @@ def wishlist_edit(request, id):
         form = WishlistForm(instance=wishlist_item)
     return render(request, 'wishlist_form.html', {'form': form})
 
-@login_required
+
 def wishlist_delete(request, id):
     wishlist_item = get_object_or_404(Wishlist, id=id, user=request.user)
     if request.method == 'POST':
