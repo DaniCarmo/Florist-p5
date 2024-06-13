@@ -246,7 +246,7 @@ All users signing up for an account will receive a verification link to confirm 
 
 #### Free Delivery for Members
 
-Users with an account can avail of free delivery on all orders, no min. Price, to encourage site users to sign up and create an account.
+Users with an account can avail of free delivery on all orders, no min price, to encourage site users to sign up and create an account.
 
 
 Screenshot below shows user without account/not logged in and has a 10% delivery charge applied:
@@ -417,7 +417,7 @@ The Happy Florist aims to connect directly with consumers who value fresh, hbeau
 
 ### Facebook Page
 
-[The Happy florist](https://www.facebook.com/profile.php?id=61560638586222)
+[The Happy Florist FB Page](https://www.facebook.com/profile.php?id=61560638586222)
 
 ![Facebook Page](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/Screenshot%20FB.png?raw=true)
 
@@ -433,7 +433,7 @@ Using integration with [Mailchimp](https://mailchimp.com/?currency=EUR).
 
 * [Bootstrap](https://www.bootstrapcdn.com/)
 
-   *For adding responsive styling to the site.
+   * For adding responsive styling to the site.
 
 * [Python](https://www.python.org/)
 
