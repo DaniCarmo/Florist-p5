@@ -58,6 +58,8 @@ View the live site [here](https://the-happy-florist-5c44ce792179.herokuapp.com/)
 
       * [Order Confirmation](#order-confirmation)
 
+      * [Add to Wishlist](#wishlist)
+
    * [Future Features](#future-features)
 
 * [Marketing Strategies](#marketing-strategies)
@@ -373,6 +375,14 @@ Users are brought to a confirmation page to confirm their order has been placed 
 
 
 
+#### Add to Wishlist
+
+The add to wishlist function is currently not working, I ran in to an error and caould not fix it before project submission deadline unfortunatelty.
+
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/wishlist-product.png?raw=true)
+
+
+
 ### Future Features
 
 
@@ -559,7 +569,7 @@ Ran each test mentioned in the table below multiple times and each action execut
 
 
 
-There are no unfixed bugs recorded.
+The add to wishlist function is currently not working, I ran in to an error and caould not fix it before project submission deadline unfortunatelty.
 
 
 
