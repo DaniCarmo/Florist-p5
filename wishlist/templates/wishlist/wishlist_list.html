@@ -24,7 +24,7 @@
   <ul>
     {% for item in wishlists %}
       <li>
-        {{ item.flower.name }} ({{ item.quantity }})
+        {{ item.product.name }} ({{ item.quantity }})
         <a href="{% url 'wishlist_edit' item.id %}">Edit</a>
         <a href="{% url 'wishlist_delete' item.id %}">Delete</a>
       </li>
