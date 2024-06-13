@@ -146,9 +146,10 @@ All user stories are available to view [here](https://github.com/users/DaniCarmo
 ### Wireframes
 
 
-Wireframes were created on Miro, example below and all designs available to view [here]()
+Wireframes were created on Miro, example below and all designs available to view [here](https://github.com/DaniCarmo/Florist-p5/tree/main/static/testing/wireframes)
 
-![screenshot of wireframe]()
+
+![screenshot of wireframe](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/wireframes/wireframe.png?raw=true)
 
 
 
@@ -446,7 +447,7 @@ Using integration with [Mailchimp](https://mailchimp.com/?currency=EUR).
 
    * Used to host the repository.
 
-* [Wireframe.cc](https://wireframe.cc/).
+* [Miro](https://miro.com/app/dashboard/)
 
    * To create the wireframes and design at planning stage.
 
