@@ -6,7 +6,7 @@ from django.db.models.functions import Lower
 
 from .models import Product, Category
 from .forms import ProductForm
-from .models import Wishlist
+from wishlist.models import Wishlist
 import json
 
 # Create your views here.
@@ -151,7 +151,7 @@ def delete_product(request, product_id):
 
 
 @login_required
-def add_to_wishlist(request, product_id):
+def wishlist_add(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, product=product)
     if not created:
