@@ -7,7 +7,10 @@ from products.models import Product
 
 def wishlist_list(request):
     wishlists = Wishlist.objects.filter(user=request.user)
-    return render(request, 'wishlist_list.html', {'wishlists': wishlists})
+    context = {
+        'wishlists': wishlists,
+    }
+    return render(request, 'wishlist_list.html', context)
 
 
 def wishlist_add(request, product_id):
@@ -27,8 +30,8 @@ def wishlist_add(request, product_id):
     return render(request, 'wishlist_form.html', {'form': form})
 
 
-def wishlist_edit(request, id):
-    wishlist_item = get_object_or_404(Wishlist, id=id, user=request.user)
+def wishlist_edit(request, item_id):
+    wishlist_item = get_object_or_404(Wishlist, id=item_id, user=request.user)
     if request.method == 'POST':
         form = WishlistForm(request.POST, instance=wishlist_item)
         if form.is_valid():
@@ -36,12 +39,14 @@ def wishlist_edit(request, id):
             return redirect('wishlist_list')
     else:
         form = WishlistForm(instance=wishlist_item)
+
     return render(request, 'wishlist_form.html', {'form': form})
 
 
-def wishlist_delete(request, id):
-    wishlist_item = get_object_or_404(Wishlist, id=id, user=request.user)
+def wishlist_delete(request, item_id):
+    wishlist_item = get_object_or_404(Wishlist, id=item_id, user=request.user)
     if request.method == 'POST':
         wishlist_item.delete()
         return redirect('wishlist_list')
+    
     return render(request, 'wishlist_confirm_delete.html', {'wishlist_item': wishlist_item})

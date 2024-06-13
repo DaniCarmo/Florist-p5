@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="row pt-3">
-        <a href="{% url 'wishlist_add' %}">Add a new flower to your wishlist</a>
+        <a href="{% url 'wishlist_add' product.id %}">Add Product to Wishlist</a>
   <ul>
     {% for item in wishlists %}
       <li>

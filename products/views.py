@@ -150,11 +150,10 @@ def delete_product(request, product_id):
     return redirect(reverse('products'))
 
 
-@login_required
 def wishlist_add(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     wishlist_item, created = Wishlist.objects.get_or_create(user=request.user, product=product)
     if not created:
-        wishlist_item.quantity += 1  # or any logic to update quantity
+        wishlist_item.quantity += 1
     wishlist_item.save()
     return redirect('wishlist_list')
