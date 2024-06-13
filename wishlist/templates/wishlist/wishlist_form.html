@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container bg-white pb-4">
+    <div class="row pt-5">
+        <div class="col pt-5 mt-5">
+            <hr>
+            <h2 class="logo-font my-4">My Wishlist</h2>
+            <h5 class="text-muted">Add/Edit Wishlist Item</h5>
+            <hr>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <form method="POST" class="form mb-2">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="text-right">
+                    <a class="btn btn-outline-black rounded-0" href="{% url 'wishlist_list' %}">Cancel</a>
+                    <button class="btn btn-black rounded-0" type="submit">Save</button>
+                </div>
+            </form>
+        </div>    
+    </div>
+</div>
+{% endblock %}
