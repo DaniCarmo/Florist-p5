@@ -38,20 +38,30 @@ def add_to_bag(request, item_id):
         size = request.POST['product_size']
     bag = request.session.get('bag', {})
 
+    price = product.price  # Default price
+    if product.has_sizes:
+        if size == 's':
+            price = product.price.s
+        elif size == 'm':
+            price = product.price.m
+        elif size == 'l':
+            price = product.price.l
+
     if size:
         if item_id in list(bag.keys()):
             if size in bag[item_id]['items_by_size'].keys():
-                bag[item_id]['items_by_size'][size] += quantity
+                bag[item_id]['items_by_size'][size]['quantity'] += quantity
             else:
-                bag[item_id]['items_by_size'][size] = quantity
+                bag[item_id]['items_by_size'][size] = {'quantity': quantity, 'price': price}
         else:
-            bag[item_id] = {'items_by_size': {size: quantity}}
+            bag[item_id] = {'items_by_size': {size: {'quantity': quantity, 'price': price}}}
     else:
         if item_id in list(bag.keys()):
-            bag[item_id] += quantity
-            messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
+            bag[item_id]['quantity'] += quantity
+            bag[item_id]['price'] = price
+            messages.success(request, f'Updated {product.name} quantity to {bag[item_id]["quantity"]}')
         else:
-            bag[item_id] = quantity
+            bag[item_id] = {'quantity': quantity, 'price': price}
             messages.success(request, f'Added {product.name} to your bag')
 
     request.session['bag'] = bag
@@ -74,7 +84,7 @@ def adjust_bag(request, item_id):
 
     if size:
         if quantity > 0:
-            bag[item_id]['items_by_size'][size] = quantity
+            bag[item_id]['items_by_size'][size]['quantity'] = quantity
         else:
             del bag[item_id]['items_by_size'][size]
             if not bag[item_id]['items_by_size']:
