@@ -60,7 +60,9 @@ body {
 .shop-now-button {
     background: black;
     color: white;
-    min-width: 260px;
+    min-width: 300px;
+    font-size: 45px;
+    font-family: "Dancing Script", cursive;
 }
 
 .btn-black {
