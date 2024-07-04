@@ -136,6 +136,10 @@ footer {
     width: 200px;
 }
 
+.quote-text {
+    font-size: 1.25rem;
+}
+
 .card:hover {
     border-color:#53877a;
 }
@@ -321,7 +325,7 @@ input[name='q']::placeholder {
         font-size: 40px;
       }
 
-    .lead {
+    .lead, .quote-text {
         font-size: 17px;
     }
 }
