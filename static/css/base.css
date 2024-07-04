@@ -132,6 +132,10 @@ footer {
     margin: 1rem;
 }
 
+.quote-img {
+    width: 200px;
+}
+
 .card:hover {
     border-color:#53877a;
 }
