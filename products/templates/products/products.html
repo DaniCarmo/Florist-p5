@@ -14,6 +14,32 @@
         <div class="row mt-1 header-small-mobile">
             <div class="col text-center bg-white">
                 <hr class="w-100 mb-1">
+                <h2 class="logo-font my-4 text-center">Custom Products</h2>
+                <hr class="w-100 mb-1">
+            </div>
+        </div>
+
+        <div class="container about my-5">
+            <div class="container p-5">
+                <div class="row">
+                    <div class="col-md-6 d-flex flex-column px-4">
+                        <p><strong>Personalised Balloons: </strong>Add a special touch to any occasion with our personalized balloons! Whether it's a name, a special message, or a unique design, our custom balloons are perfect for birthdays, anniversaries, graduations, and more.</p>
+                        <p><strong>Special Flower Arrangements: </strong>Looking for something unique? Our talented florists can create bespoke flower arrangements tailored to your specific needs. Whether you have a particular flower in mind, a specific color scheme, we are here to bring your vision to life.</p>
+                    </div>
+                    <div class="col-md-6 d-flex flex-column px-4">
+                        <p><strong>Wedding & Party Packages: </strong>Make your big day unforgettable with our custom wedding and party packages. From stunning bridal bouquets to full venue decoration, we offer comprehensive packages to suit every style and budget.</p>
+                        <br>
+                        <a href ="https://www.facebook.com/profile.php?id=61560638586222" target="_blank" rel="noopener" aria-label="Quote Icon">
+                            <img src="{% static 'media/icons/quote.svg' %}" alt="Quote Icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-1 header-small-mobile">
+            <div class="col text-center bg-white">
+                <hr class="w-100 mb-1">
                 <h2 class="logo-font my-4 text-center">Products</h2>
                 {% for c in current_categories %}
                     <a class="category-badge text-decoration-none" href="{% url 'products' %}?category={{ c.name }}">
