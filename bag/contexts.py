@@ -32,7 +32,7 @@ def bag_contents(request):
                         price = float(product.price_m)
                     elif size == 's':
                         total += quantity * product.price_s
-                        price = float(product.price_2)
+                        price = float(product.price_s)
                     else:
                         total += quantity * product.price
                         price = float(product.price)
