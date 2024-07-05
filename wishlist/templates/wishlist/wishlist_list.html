@@ -20,16 +20,15 @@
         </div>
     </div>
     <div class="row pt-3">
-        <a href="{% url 'wishlist_add' product.id %}">Add Product to Wishlist</a>
-  <ul>
-    {% for item in wishlists %}
-      <li>
-        {{ item.product.name }} ({{ item.quantity }})
-        <a href="{% url 'wishlist_edit' item.id %}">Edit</a>
-        <a href="{% url 'wishlist_delete' item.id %}">Delete</a>
-      </li>
-    {% endfor %}
-  </ul>
+      <ul>
+        {% for item in wishlists %}
+          <li>
+            {{ item.product.name }} ({{ item.quantity }})
+            <a href="{% url 'wishlist_edit' item.id %}">Edit</a>
+            <a href="{% url 'wishlist_delete' item.id %}">Delete</a>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
 </div>
 {% endblock %}
