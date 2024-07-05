@@ -23,13 +23,29 @@ def bag_contents(request):
         else:
             product = get_object_or_404(Product, pk=item_id)
             for size, quantity in item_data['items_by_size'].items():
-                total += quantity * product.price
+                if size:
+                    if size == 'l':
+                        total += quantity * product.price_l
+                        price = float(product.price_l)
+                    elif size == 'm':
+                        total += quantity * product.price_m
+                        price = float(product.price_m)
+                    elif size == 's':
+                        total += quantity * product.price_s
+                        price = float(product.price_2)
+                    else:
+                        total += quantity * product.price
+                        price = float(product.price)
+                else:
+                    total += quantity * product.price
+                    price = float(product.price)
                 product_count += quantity
                 bag_items.append({
                     'item_id': item_id,
                     'quantity': quantity,
                     'product': product,
                     'size': size,
+                    'price':price
                 })
 
     # Check if the user is logged in

@@ -53,6 +53,7 @@ def add_to_bag(request, item_id):
         else:
             bag[item_id] = quantity
             messages.success(request, f'Added {product.name} to your bag')
+    
 
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -90,7 +91,7 @@ def adjust_bag(request, item_id):
 
 
 def remove_from_bag(request, item_id):
-    """ ARemove items from shopping bag """
+    """ Remove items from shopping bag """
     try:
         size = None
         if 'product_size' in request.POST:
