@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Review
+from .models import Review, Product
 from .forms import ReviewForm
 from django.contrib import messages
 
@@ -31,3 +31,11 @@ def delete_review(request, review_id):
 def all_reviews(request):
     reviews = Review.objects.all()
     return render(request, 'reviews/all_reviews.html', {'reviews': reviews})
+
+def search_results(request):
+    query = request.GET.get('query')
+    reviews = Review.objects.filter(product__name__icontains=query)
+    context = {
+        'reviews': reviews,
+    }
+    return render(request, 'reviews/all_reviews.html', context)

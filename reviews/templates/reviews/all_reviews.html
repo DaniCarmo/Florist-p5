@@ -10,6 +10,22 @@
             <hr>
         </div>
     </div>
+
+    <!-- Search Bar -->
+    <div class="row justify-content-center my-4">
+        <div class="col-12 col-md-8">
+            <form method="GET" action="{% url 'search_results' %}">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search products..." name="query">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Reviews -->
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
             {% for review in reviews %}
