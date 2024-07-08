@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
+
 <div class="container bg-white pb-4">
     <div class="row pt-5">
         <div class="col pt-5 mt-5">
@@ -14,9 +16,9 @@
                 <div class="review my-4 p-3 border">
                     <h5>{{ review.product.name }}</h5>
                     {% if review.product.image %}
-                        <img class="img-fluid rounded" src="{{ review.product.image.url }}" alt="{{ review.product.name }}">
+                        <img class="img-fluid rounded image-list" src="{{ review.product.image.url }}" alt="{{ review.product.name }}">
                     {% else %}
-                        <img class="img-fluid rounded" src="{% static 'media/noimage.png' %}" alt="{{ review.product.name }}">
+                        <img class="img-fluid rounded image-list" src="{% static 'media/noimage.png' %}" alt="{{ review.product.name }}">
                     {% endif %}
                     <p>{{ review.comment }}</p>
                     <p><small>Reviewed by {{ review.user.username }} on {{ review.created_at }}</small></p>

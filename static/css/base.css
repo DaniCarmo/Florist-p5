@@ -258,6 +258,10 @@ input[name='q']::placeholder {
     max-height: 650px;
 }
 
+.image-list {
+    width: 150px;
+}
+
 /* toasts */
 
 .message-container {
