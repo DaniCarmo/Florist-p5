@@ -23,6 +23,11 @@
       <ul>
         {% for item in wishlists %}
           <li>
+            {% if item.product.image %}
+            <img class="img-fluid rounded" src="{% static 'media/' %}{{ item.product.image }}" alt="{{ item.product.name }}">
+            {% else %}
+            <img class="img-fluid rounded" src="{% static 'media/noimage.png' %}" alt="{{ item.product.name }}">
+            {% endif %}
             {{ item.product.name }} ({{ item.quantity }})
             <a href="{% url 'wishlist_edit' item.id %}">Edit</a>
             <a href="{% url 'wishlist_delete' item.id %}">Delete</a>
