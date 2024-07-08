@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container bg-white pb-4">
+    <div class="row pt-5">
+        <div class="col pt-5 mt-5">
+            <hr>
+            <h2 class="logo-font my-4">All Reviews</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8">
+            {% for review in reviews %}
+                <div class="review my-4 p-3 border">
+                    <h5>{{ review.product.name }}</h5>
+                    <p>{{ review.comment }}</p>
+                    <p><small>Reviewed by {{ review.user.username }} on {{ review.created_at }}</small></p>
+                </div>
+            {% endfor %}
+        </div>    
+    </div>
+</div>
+{% endblock %}
