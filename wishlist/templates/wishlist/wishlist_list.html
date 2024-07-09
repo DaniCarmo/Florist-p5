@@ -25,9 +25,9 @@
           <li>
             <h5>{{ item.product.name }}</h5>
                 {% if item.product.image %}
-                    <img class="image-list" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                    <img class="img-fluid image-list" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                 {% else %}
-                    <img class="image-list" src="{% static 'media/noimage.png' %}" alt="{{ item.product.name }}">
+                    <img class="img-fluid image-list" src="{% static 'media/noimage.png' %}" alt="{{ item.product.name }}">
                 {% endif %}
             ({{ item.quantity }})
             <a href="{% url 'wishlist_edit' item.id %}">Edit</a>

@@ -32,9 +32,9 @@
                 <div class="review my-4 p-3 border">
                     <h5>{{ review.product.name }}</h5>
                     {% if review.product.image %}
-                        <img class="image-list" src="{{ review.product.image.url }}" alt="{{ review.product.name }}">
+                        <img class="img-fluid image-list" src="{{ review.product.image.url }}" alt="{{ review.product.name }}">
                     {% else %}
-                        <img class="image-list" src="{% static 'media/noimage.png' %}" alt="{{ review.product.name }}">
+                        <img class="img-fluid image-list" src="{% static 'media/noimage.png' %}" alt="{{ review.product.name }}">
                     {% endif %}
                     <p>{{ review.comment }}</p>
                     <p><small>Reviewed by {{ review.user.username }} on {{ review.created_at }}</small></p>
