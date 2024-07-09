@@ -259,7 +259,7 @@ input[name='q']::placeholder {
 }
 
 .image-list {
-    width: 150px;
+    width: 150px !important;
 }
 
 /* toasts */
