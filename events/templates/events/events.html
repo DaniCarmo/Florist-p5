@@ -59,10 +59,10 @@
                                             </div>
                                     </div>
                                     {% if request.user.is_superuser %}
-                                    <small class="ml-3">
-                                        <a href="{% url 'edit_event' event.id %}">Edit</a> | 
-                                        <a class="text-danger" href="{% url 'delete_event' event.id %}">Delete</a>
-                                    </small>
+                                        <small class="ml-3">
+                                            <a href="{% url 'edit_event' event.id %}">Edit</a> | 
+                                            <a class="text-danger" href="{% url 'delete_event' event.id %}">Delete</a>
+                                        </small>
                                     {% endif %}
                                 </div>
                             </div>

@@ -60,6 +60,8 @@ View the live site [here](https://the-happy-florist-5c44ce792179.herokuapp.com/)
 
       * [Add to Wishlist](#wishlist)
 
+      * [Reviews](#reviews)
+
    * [Future Features](#future-features)
 
 * [Marketing Strategies](#marketing-strategies)
@@ -377,6 +379,14 @@ Users are brought to a confirmation page to confirm their order has been placed 
 
 #### Add to Wishlist
 
+The add to wishlist function allows user to click search a dropdown and add a product to a wishlist, this list is then stored and can be accessed under the user login under "Wishlist". These items can also be edited and deleted.
+
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/wishlist-product.png?raw=true)
+
+
+
+#### Reviews
+
 The add to wishlist function is currently not working, I ran in to an error and caould not fix it before project submission deadline unfortunatelty.
 
 ![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/wishlist-product.png?raw=true)
@@ -390,8 +400,6 @@ The add to wishlist function is currently not working, I ran in to an error and 
 Features to be implemented may include:
 
 * Allowing logged in users to rate products
-
-* Allowing logged in users to leave reviews under products
 
 * Create a user-friendly event sign up page, where user can enter their details and chose events from a dropdown schedule and they will receive a confirmation email invite so it will sync up with their personal calendars on their phone, PC, etc.
 
@@ -569,7 +577,7 @@ Ran each test mentioned in the table below multiple times and each action execut
 
 
 
-The add to wishlist function is currently not working, I ran in to an error and caould not fix it before project submission deadline unfortunatelty.
+There are currently no unfixed bugs recorded.
 
 
 
@@ -623,34 +631,251 @@ To clone the repository through GitHub:
 
 
 
-To deploy the project through Heroku I followed these steps:
+**In your app** 
+
+1. add the list of requirements by writing in the terminal "pip3 freeze --local > requirements.txt"
+2. Git add and git commit the changes made
+
+**Log into heroku**
+
+3. Log into [Heroku](https://dashboard.heroku.com/apps) or create a new account and log in
+
+4. top right-hand corner click "New" and choose the option Create new app, if you are a new user, the "Create new app" button will appear in the middle of the screen
+
+5. Write app name - it has to be unique, it cannot be the same as this app
+6. Choose Region - I am in Europe
+7. Click "Create App"
+
+**The page of your project opens.**
+
+8. Go to Resources Tab, Add-ons, search and add Heroku Postgres
+
+9. Choose "settings" from the menu on the top of the page
+
+10. Go to section "Config Vars" and click button "Reveal Config Vars". 
+
+11. Add the below variables to the list
+
+    * Database_URL from  PostgresQL.  
+    * Secret_Key - is the djnago secret key can be generated [here](https://miniwebtool.com/django-secret-key-generator/). 
 
 
+**Go back to code**
 
-1. Create a Heroku account.
+12. Procfile needs to be created in your app
+```
+web: gunicorn PROJ_NAME.wsgi:application
+```
 
-2. Sign up with a student account for credits. (optional)
+13. In settings in your app add Heroku to ALLOWED_HOSTS
 
-3. Once logged in, select create a new app.
+14. Add and commit the changes in your code and push to github
 
-4. Select an app name and region EU.
+**Final step - deployment**
 
-5. Select deployment method as connect to github.
+15. Next go to "Deploy" in the menu bar on the top 
 
-6. Find the desired repo from your github.
+16. Go to section "deployment method", choose "GitHub"
 
-7. Enable automatic deploys and select the main branch.
+17. New section will appear "Connect to GitHub" - Search for the repository to connect to
 
-8. In the settings tab select reveal config vars and Input the required hidden variables, such as Stripe keys, AWS keys, Database url, and your project’s secret key.
+18. type the name of your repository and click "search"
 
-9. Navigate to the 'Deploy' page and 'GitHub' from the 'Deployment method' section.
+19. once Heroku finds your repository - click "connect"
 
-10. Select deploy and once built you will see a notice on Heroku that build was successful and you click on “Open App” to view the live site.
+20. Scroll down to the section "Memual Deploys"
 
+21. Click choose "Deploy branch" and manually deploy
+
+22. Click "Deploy branch"
+
+Once the program runs:
+you should see the message "the app was sussesfully deployed"
+
+
+### Getting Stripe keys
+Go to developers tab. On side menu you will find API keys. Copy STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY.
+
+Go to Webhooks. Click Add Endpoint button in top right hand corner.
+Add endpoint URL (your local or deployed URL)
+Add all events 
+Than click add endpoint
+You should be redirected to this webhook's page. Reveal webhook sign in secret and copy to Settings and to heroku as STRIPE_WH_SECRET variable
+
+### Getting email variables from gmail
+
+
+- Log into gmail account
+- Go to Settings and than See all settings
+- Top menu go to Accounts and import
+- Find on the list Other google account settings
+- Left side menu - Security
+- Turn on two step verification: add phone number and follow instructions
+- Go back to security
+App passwords - Select Mail, Select Device - Other, Django, Copy app password.
+
+In Heroku 
+EMAIL_HOST_PASS is the password copied from above.
+EMAIL_HOST_USER is the gmail email address
+
+
+### Setting AWS bucket
+
+
+1. Go to [Amzon Web Services](https://aws.amazon.com/) page and login or register
+
+2. You should be redirected to AWS Managment Console, if not click onto AWS logo in top left corner or click Services icon and choose Console Home
+
+3. Below the header AWS Services click into All Services and find **S3** under Storage
+
+4. Create New Bucket using **Create Bucket** button in top right hand corner
+
+- **Configuration:** type in your chosen name for the bucket (preferably matching your heroku app name) and AWS Region closest to you
+
+
+- **Object ownership:** ACLs enabled, Bucket owner preffered
+
+- **Block Public Access settings:** Uncheck to allow public access, Acknowledge that the current settings will result that the objects within the bucket will become public
+
+- Click **Create Bucket**
+
+5. You are redirected to Amazon S3 with list of your buckets. Click into the name of the bucket you just created
+
+6. Find the tab **Properties** on the top of the page:
+**Static website hosting** at the bottom of the properties page: clik to edit, click enable, fill in index document: index.html and error.html for error
+
+7. On the **Permissions** tab:
+- Cross-origin resource sharing (**CORS**) Paste in the below code as configuration and save
+
+```
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+```
+- **Bucket Policy** within permissions tab: Edit bucket policy
+Click AWS Policy Generator (top right conrner)
+
+Select type of policy: S3 Bucket policy
+Principal: * (allows all)
+Actions: Get object
+Amazon Resource Name (ARN): paste from the Edit bucket policy page in permissions
+Click Add statement Than Click Generate Policy and Copy the policy into bucket policy editor. 
+In the policy code find "Resource" key and add "/*" after the name of the bucket to enable all
+Save changes
+
+- **Access control list (ACL)** within permissions tab: click Edit
+
+find Everyone (public access) and check List box and save
+
+8. Identity and Access Management (IAM)
+Go back to the AWS Management Console and find IAM in AWS Services
+
+- side menu - User Groups and click **Create Group**
+name group "manage-your-app-name" and click Create group
+
+- side menu - Policies and click **Create Policy**
+Click import managed policy - find AmazonS3FullAccess
+Copy ARN again and paste into "Resource" add list containint two elements "[ "arn::..", ""arn::../*]" First element is for bucket itself, second element is for all files and foldrs in the bucket
+
+Click bottom right Add Tags, than Click bottom right Next: Review
+Add name of the policy and description
+
+Click bottom right Create policy
+
+9. Attach policy to the group we created:
+- go to User Groups on side menu
+- select your group from the list
+- go to permissions tab and add permissions drop down and choose **Attach policies**
+- find the policy created above and click button in bottom right Add permissions
+
+10. Create User to go in the group
+- **Users** in the side menu and click add users
+
+User name: your-app-staticfiles-user
+Check option: Access key - Programmatic access
+Click button at the bottom right for Next
+- Add user group and add user to the group you created earlier
+Click Next Tags and Next: review and Create user
+- Download .csv file
+
+11. Connect django to AWS S3 bucket
+- install boto3
+- install django-storages
+- freeze to requirements.txt
+- add storages to installed apps in settings.py
+
+```
+if 'USE_AWS' in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = 'mahir-store'
+    AWS_S3_REGION_NAME = 'eu-north-1'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+```
+
+12. Go to heroku to set up enviromental variables
+
+open CSV file downloaded earlier and copy each variable into heroku Settings
+
+AWS_STORAGE_BUCKET_NAME
+AWS_ACCESS_KEY_ID from csv
+AWS_SECRET_ACCESS_KEY from csv
+USE_AWS = True
+remove DISABLE_COLLECTSTATIC variable from heroku
+
+13. Create file in root directory custom_storages.py
+
+```
+from django.conf import settings
+from storages.backends.s3boto3 import S3Boto3Storage
+
+class StaticStorage(S3Boto3Storage):
+    location = settings.STATICFILES_LOCATION
+
+class MediaStorage(S3Boto3Storage):
+    location = settings.MEDIAFILES_LOCATION
+```
+
+14. Go to settings.py, add the AWS settings
+
+```
+     # Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
+```
+
+15. To load the media files to S3 bucket
+
+- Go to your S3 bucket page on AWS. Create new folder "media"
+- go to the media folder and click Upload
 
 
 ## Credits
-
 
 
 * Used the Code Institute’s P5 sample project, Boutique Ado, as a guide and basic template for the site.
