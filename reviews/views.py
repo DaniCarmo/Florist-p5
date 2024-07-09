@@ -20,13 +20,21 @@ def submit_review(request):
 
 @login_required
 def delete_review(request, review_id):
+    """
+    Allows admin to delete review
+    """
+    if not request.user.is_superuser:
+        messages.error(request, 'Oops! Sorry, only admins can perform this action.')
+        return redirect('reviews')
+    
     review = get_object_or_404(Review, id=review_id)
-    if review.user == request.user or request.user.is_superuser:
+    if request.method == "POST":
         review.delete()
-        messages.success(request, 'Review deleted successfully')
+        messages.success(request, 'Review deleted!')
+        return redirect('reviews')
     else:
-        messages.error(request, 'You do not have permission to delete this review')
-    return redirect('profile')
+        messages.error(request, 'Invalid request method.')
+        return redirect('reviews')
 
 def all_reviews(request):
     reviews = Review.objects.all()
