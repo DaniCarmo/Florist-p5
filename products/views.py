@@ -6,6 +6,7 @@ from django.db.models.functions import Lower
 
 from .models import Product, Category
 from .forms import ProductForm
+from bag.contexts import bag_contents
 from wishlist.models import Wishlist
 import json
 
@@ -57,6 +58,8 @@ def all_products(request):
         'current_categories': categories,
         'current_sorting': current_sorting,
     }
+    # Merge with bag contents context
+    context.update(bag_contents(request))
 
     return render(request, 'products/products.html', context)
 

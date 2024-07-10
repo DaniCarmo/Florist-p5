@@ -134,7 +134,8 @@ def checkout(request):
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
-
+    # Merge with bag contents context
+    context.update(bag_contents(request))
 
     return render(request, template, context)
 

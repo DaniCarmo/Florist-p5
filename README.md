@@ -417,7 +417,7 @@ Users are brought to a confirmation page to confirm their order has been placed 
 
 #### Add to Wishlist
 
-The add to wishlist function allows user to click search a dropdown and add a product to a wishlist, this list is then stored and can be accessed under the user login under "Wishlist". These items can also be deleted or user can add them to their cart from here.
+The add to wishlist function allows user to add a product to their wishlist, this list is then stored and can be accessed under the user login under "Wishlist". These items can also be deleted or user can add them to their cart from here.
 
 ![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/wishlist-product.png?raw=true)
 
@@ -635,7 +635,7 @@ Ran each test mentioned in the table below multiple times and each action execut
 
 
 
-There are currently no unfixed bugs recorded, however I would like to update the user reviews so that the user can see all of their submitted reviews on their profile page. Also when a user clicks 'Add to Wishlist' on the product details page, instead of being brough to the add to wishlist page with a dropdown to select a product, it would provide a better user experience if the product they were viewing can be added to the wishlist by clicking that button, instead of being brought to the dropdown page to search for the product. These are two features I would improve on given more time.
+There are currently no unfixed bugs recorded, however I would like to update the user reviews so that the user can see all of their submitted reviews on their profile page.
 
 
 
