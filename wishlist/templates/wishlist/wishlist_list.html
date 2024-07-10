@@ -24,6 +24,7 @@
         {% for item in wishlists %}
           <li>
             <h5>{{ item.product.name }}</h5>
+            <p>Price: ${{ item.product.price }}</p>
                 {% if item.product.image %}
                     <img class="img w-50 image-list" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                 {% else %}
