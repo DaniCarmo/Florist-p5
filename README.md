@@ -417,14 +417,16 @@ Users are brought to a confirmation page to confirm their order has been placed 
 
 #### Add to Wishlist
 
-The add to wishlist function allows user to click search a dropdown and add a product to a wishlist, this list is then stored and can be accessed under the user login under "Wishlist". These items can also be edited and deleted.
+The add to wishlist function allows user to click search a dropdown and add a product to a wishlist, this list is then stored and can be accessed under the user login under "Wishlist". These items can also be deleted or user can add them to their cart from here.
 
 ![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/wishlist-product.png?raw=true)
 
 
 The user can select products from a dropdown to add to their wishlist (if they are logged in):
 
-![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/wishlist.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/wishlist-updated.png?raw=true)
+
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/wishlist-to-cart.png?raw=true)
 
 
 And users can view their wishlist:

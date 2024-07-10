@@ -43,13 +43,9 @@ def wishlist_add(request, product_id):
         wishlist_item, created = Wishlist.objects.get_or_create(
             user=request.user,
             product=product,
-            defaults={'quantity': 1}
         )
-        if not created:
-            wishlist_item.quantity += 1
-            wishlist_item.save()
-
-        messages.success(request, 'Product added to wishlist')
+        if created:
+            messages.success(request, 'Product added to wishlist')
         return redirect('product_detail', product_id=product.id)
 
     return redirect('product_detail', product_id=product.id)
