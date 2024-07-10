@@ -24,6 +24,8 @@ View the live site [here](https://the-happy-florist-5c44ce792179.herokuapp.com/)
 
    * [Wireframes](#wireframes)
 
+   * [ERD](#erd)
+
    * [Color Scheme and Typography](#color-scheme)
 
 * [Features](#features)
@@ -158,6 +160,15 @@ The homepage wireframe looks slightly different as a last minute change was made
 
 
 ![screenshot of wireframe](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/wireframes/wireframe.png?raw=true)
+
+
+
+### ERD
+
+
+ERD shown below created with Flowsage:
+
+![screenshot of erd](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/wireframes/ERD.png?raw=true)
 
 
 
@@ -355,9 +366,6 @@ Here staff and super users can add new products and set all elements of the prod
 The events page allows users to view upcoming events on the events dashboard and click to register for an event.
 
 ![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/fonts.png?raw=true)
-
-
-![screenshot]()
 
 
 
@@ -612,7 +620,7 @@ Ran each test mentioned in the table below multiple times and each action execut
 
 
 
-There are currently no unfixed bugs recorded.
+There are currently no unfixed bugs recorded, however I would like to update the user reviews so that the user can see all of their submitted reviews on their profile page. Also when a user clicks 'Add to Wishlist' on the product details page, instead of being brough to the add to wishlist page with a dropdown to select a product, it would provide a better user experience if the product they were viewing can be added to the wishlist by clicking that button, instead of being brought to the dropdown page to search for the product. These are two features I would improve on given more time.
 
 
 
