@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from decimal import Decimal 
 from .models import Wishlist
-from .forms import WishlistForm
 from products.models import Product
 
 
@@ -21,7 +21,7 @@ def wishlist_to_bag(request, product_id):
 
     # Add the product to the bag
     bag = request.session.get('bag', {})
-    price = product.price  # Get the price of the product
+    price = float(product.price)  # Get the price of the product and convert to float for json
 
     if product.id in bag:
         bag[product.id]['quantity'] += 1
