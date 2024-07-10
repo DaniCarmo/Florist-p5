@@ -166,7 +166,20 @@ The homepage wireframe looks slightly different as a last minute change was made
 ### ERD
 
 
-ERD shown below created with Flowsage:
+#### Relationships
+
+* A User can have multiple Orders.
+* A User can write multiple Reviews.
+* A User can have multiple Wishlist items.
+* A User can have one Cart.
+* An Order can have multiple OrderItems.
+* A Product can belong to one Category.
+* A Category can have multiple Products.
+* A Product can have multiple Reviews.
+* A Product can have multiple Wishlist entries.
+
+
+ERD shown below created with [dbdiagram](https://dbdiagram.io/):
 
 ![screenshot of erd](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/wireframes/ERD.png?raw=true)
 

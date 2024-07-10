@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Wishlist
 from .forms import WishlistForm
 from products.models import Product
 
 
+@login_required
 def wishlist_list(request):
     wishlists = Wishlist.objects.filter(user=request.user)
     context = {
@@ -12,37 +14,47 @@ def wishlist_list(request):
     }
     return render(request, 'wishlist/wishlist_list.html', context)
 
+@login_required
+def wishlist_to_bag(request, product_id):
+    wishlist_item = get_object_or_404(Wishlist, id=product_id, user=request.user)
+    product = wishlist_item.product
 
+    # Add the product to the bag
+    bag = request.session.get('bag', {})
+
+    if product.id in bag:
+        bag[product.id] += 1
+    else:
+        bag[product.id] = 1
+
+    request.session['bag'] = bag
+
+    # Remove item from wishlist
+    wishlist_item.delete()
+
+    messages.success(request, f'Added {product.name} to your bag and removed from wishlist')
+    return redirect('wishlist_list')
+
+@login_required
 def wishlist_add(request, product_id):
     product = get_object_or_404(Product, id=product_id)
 
     if request.method == 'POST':
-        form = WishlistForm(request.POST)
-        if form.is_valid():
-            wishlist_item = form.save(commit=False)
-            wishlist_item.user = request.user
-            wishlist_item.product = product
+        wishlist_item, created = Wishlist.objects.get_or_create(
+            user=request.user,
+            product=product,
+            defaults={'quantity': 1}
+        )
+        if not created:
+            wishlist_item.quantity += 1
             wishlist_item.save()
-            return redirect('wishlist_list')
-    else:
-        form = WishlistForm()
 
-    return render(request, 'wishlist/wishlist_form.html', {'form': form})
+        messages.success(request, 'Product added to wishlist')
+        return redirect('product_detail', product_id=product.id)
 
+    return redirect('product_detail', product_id=product.id)
 
-def wishlist_edit(request, product_id):
-    wishlist_item = get_object_or_404(Wishlist, id=product_id, user=request.user)
-    if request.method == 'POST':
-        form = WishlistForm(request.POST, instance=wishlist_item)
-        if form.is_valid():
-            form.save()
-            return redirect('wishlist_list')
-    else:
-        form = WishlistForm(instance=wishlist_item)
-
-    return render(request, 'wishlist/wishlist_form.html', {'form': form})
-
-
+@login_required
 def wishlist_delete(request, product_id):
     wishlist_item = get_object_or_404(Wishlist, id=product_id, user=request.user)
     if request.method == 'POST':
