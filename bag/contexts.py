@@ -21,6 +21,7 @@ def bag_contents(request):
                 'product': product,
             })
         else:
+            product = get_object_or_404(Product, pk=item_id)
             items_by_size = item_data.get('items_by_size', {})
             for size, quantity in items_by_size.items():
                 if size:
@@ -45,7 +46,7 @@ def bag_contents(request):
                     'quantity': quantity,
                     'product': product,
                     'size': size,
-                    'price':price,
+                    'price':price
                 })
 
     # Check if the user is logged in
