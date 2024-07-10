@@ -21,11 +21,15 @@ def wishlist_to_bag(request, product_id):
 
     # Add the product to the bag
     bag = request.session.get('bag', {})
+    price = product.price  # Get the price of the product
 
     if product.id in bag:
-        bag[product.id] += 1
+        bag[product.id]['quantity'] += 1
     else:
-        bag[product.id] = 1
+        bag[product.id] = {
+            'quantity': 1,
+            'price': price,  # Add the price to the bag item
+        }
 
     request.session['bag'] = bag
 
