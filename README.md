@@ -6,7 +6,7 @@ View the live site [here](https://the-happy-florist-5c44ce792179.herokuapp.com/)
 
 
 
-![screenshot of the live site](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/Main.png?raw=true)
+![screenshot of the live site](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/main-updated.png?raw=true)
 
 
 
@@ -41,6 +41,8 @@ View the live site [here](https://the-happy-florist-5c44ce792179.herokuapp.com/)
       * [Free Delivery for Members](#free-delivery)
 
       * [About Us](#about-us)
+
+      * [Custom Products](#custom-products)
 
       * [Newsletter Sign up](#newsletter)
 
@@ -152,6 +154,8 @@ All user stories are available to view [here](https://github.com/users/DaniCarmo
 
 Wireframes were created on Miro, example below and all designs available to view [here](https://github.com/DaniCarmo/Florist-p5/tree/main/static/testing/wireframes)
 
+The homepage wireframe looks slightly different as a last minute change was made to have 1 call to action box instead of 2, and add in the custome product piece.
+
 
 ![screenshot of wireframe](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/wireframes/wireframe.png?raw=true)
 
@@ -187,7 +191,7 @@ The fonts used throughout the site are Quicksand and Dancing Script. The first b
 
 Allows user to navigate through the site and also exapnds on smaller devices for better ux design.
 
-![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/navbar.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/navbar-updated.png?raw=true)
 
 
 
@@ -212,7 +216,7 @@ The landing page with a call to action and a refreshing floral backgorund image.
 
 
 
-![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/homepage.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/homepage-updated.png?raw=true)
 
 
 
@@ -270,10 +274,18 @@ Screenshot below shows user who is logged in to their account and has no deliver
 #### About Us – Staff
 
 
-
 Section for users to get an insight in to the business and recognise the faces of staff to provide a more friendly user experience.
 
 ![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/about.png?raw=true)
+
+
+
+#### Custom Products
+
+
+Section to advise users that all products can be customised to suit their design requirements, with a link to get a quote that leads the user to the Facebook page where they can message us.
+
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/custom-products.png?raw=true)
 
 
 
@@ -315,6 +327,11 @@ Here users can view a specific product details and pricing. This will give a ful
 
 
 ![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/products-detail.png?raw=true)
+
+
+And if user is logged in they will see the add to wishlist option:
+
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/product-detail-wishlist.png?raw=true)
 
 
 
@@ -384,12 +401,22 @@ The add to wishlist function allows user to click search a dropdown and add a pr
 ![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/wishlist-product.png?raw=true)
 
 
+The user can select products from a dropdown to add to their wishlist (if they are logged in):
+
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/wishlist.png?raw=true)
+
+
+And users can view their wishlist:
+
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/my-wishlist.png?raw=true)
+
+
 
 #### Reviews
 
-The add to wishlist function is currently not working, I ran in to an error and caould not fix it before project submission deadline unfortunatelty.
+The reviews page allows user to view all reviews created for products, as well as search by keywords for a specific product. Users can add a review from their profile page and the admin can also delete reviews if they wish.
 
-![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/wishlist-product.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/reviews.png?raw=true)
 
 
 
@@ -485,6 +512,8 @@ Using integration with [Mailchimp](https://mailchimp.com/?currency=EUR).
 
 The site pages have been tested on various screen sizes to ensure that the content is responsive and all screenshots can be viewed [here](https://github.com/DaniCarmo/Florist-p5/tree/main/static/testing)
 
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/readme/responsive-sizes.png?raw=true)
+
 
 
 The code has been tested using:
@@ -512,7 +541,7 @@ The code was also checked throughout the project where errors showed up on Visua
 
 Below are screenshots fromm Goofle's lighthouse testing showing performance levels of the site pages.
 
-![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/lighthouse-home.png?raw=true)
+![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/lighthouse-home-updated.png?raw=true)
 
 
 ![screenshot](https://github.com/DaniCarmo/Florist-p5/blob/main/static/testing/lighthouse-products.png?raw=true)
@@ -570,7 +599,13 @@ Ran each test mentioned in the table below multiple times and each action execut
 | Checkout - stripe form - incorrect info                     | complete the checkout form and submit with missing info - click on complete order button                                                      | user enters info, clicks on complete order and receives error message showing what sections are required in red                                                                          | Successful |
 | Checkout confirmation page                                  | click on complete order in the shopping cart                                                                                                  | user is brought to the checkout confirmation page where they are provided with their order details                                                                                       | Successful |
 | Order confirmation email                                    | complete online order successfully                                                                                                            | user receives an email from happyfloristtralee@gmail.com with order details and order confirmation                                                                                       | Successful |
-
+| Add to wishlist                                             | Click on any product and add to wishlist                                                                                                      | Select add to wishlist and user brought to page to chose product from dropdown and can view wishlist in their list                                                                       | Successful |
+| Delete from wishlist                                        | Logged in user navigates to their wishlist from dropdown nav item to see wishlist and delete item                                             | User click on wishlist from navbar dropdown and brought to their wishlist - click on delete item and item is deleted                                                                     | Successful |
+| View Reviews                                                | Click on Reviews from navbar and user can view all reviews                                                                                    | Click on Reviews from navbar and user can view all reviews                                                                                                                               | Successful |
+| Search Reviews                                              | On reviews page user adds keyword to searchbar and provided with relevant product reviews                                                     | In search bar on review page type in 'Balloon' - all results with balloon in the name are returned                                                                                       | Successful |
+| Search Reviews                                              | On reviews page user adds keyword to searchbar and provided with relevant product reviews                                                     | In search bar on review page type in 'Meadow' - all results with meadow in the name are returned                                                                                         | Successful |
+| Add a Review                                                | User navigates to their profile and scrolls down to add review                                                                                | Under user profile click on dropdown for reviews to chose the product to review, add comments in comment box and click save - review available to view on reveiews page                  | Successful |
+| Admin - Delete Review                                       | Admin navigates to reviews page and selects 'Delete' on a review                                                                              | Admin navigates to reviews page and selects 'Delete' on a review - review is deleted and no longer available on the site                                                                 | Successful |
 
 
 ### Unfixed Bugs
