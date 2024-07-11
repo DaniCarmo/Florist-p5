@@ -67,7 +67,7 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
-                    elif isinstance(item_data, dict) and 'items_by_size' in item_data:
+                    elif 'items_by_size' in item_data:
                         for size, quantity in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
@@ -78,7 +78,7 @@ def checkout(request):
                             order_line_item.save()
                     else:
                         messages.error(request, (
-                            "The items in your bag are incorrectly formatted: {item_data}. "
+                            "There seems to be an problem with some items in your bag. "
                             "Please call us for assistance!")
                         )
                         order.delete()
