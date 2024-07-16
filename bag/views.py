@@ -10,7 +10,6 @@ def view_bag(request):
     """ A view that renders the bag contents page """
     bag = request.session.get('bag', {})
     updated_bag = {}
-
     for item_id, item_data in bag.items():
         try:
             product = get_object_or_404(Product, pk=item_id)
@@ -33,29 +32,34 @@ def add_to_bag(request, item_id):
     
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
+    size = request.POST.get('product_size') if 'product_size' in request.POST else None
     bag = request.session.get('bag', {})
+    item_id_str = str(item_id)
 
     if size:
-        if item_id in list(bag.keys()):
-            if size in bag[item_id]['items_by_size'].keys():
-                bag[item_id]['items_by_size'][size] += quantity
-            else:
-                bag[item_id]['items_by_size'][size] = quantity
+        if item_id_str not in bag:
+            bag[item_id_str] = {'items_by_size': {}}
+        
+        if 'items_by_size' not in bag[item_id_str]:
+            bag[item_id_str]['items_by_size'] = {}
+        
+        if size in bag[item_id_str]['items_by_size']:
+            bag[item_id_str]['items_by_size'][size] += quantity
         else:
-            bag[item_id] = {'items_by_size': {size: quantity}}
+            bag[item_id_str]['items_by_size'][size] = quantity
+        
+        messages.success(request, f'Added {product.name} (size {size}) to your bag')
     else:
-        if item_id in list(bag.keys()):
-            bag[item_id] += quantity
-            messages.success(request, f'Updated {product.name} quantity to {bag[item_id]}')
+        if item_id_str in bag:
+            bag[item_id_str] += quantity
+            messages.success(request, f'Updated {product.name} quantity to {bag[item_id_str]}')
         else:
-            bag[item_id] = quantity
+            bag[item_id_str] = quantity
             messages.success(request, f'Added {product.name} to your bag')
-    
 
     request.session['bag'] = bag
+    print(bag)
+    request.session.modified = True  # Ensure the session is saved
     return redirect(redirect_url)
 
 
@@ -66,7 +70,7 @@ def adjust_bag(request, item_id):
     except Product.DoesNotExist:
         messages.error(request, "The product you are trying to adjust does not exist.")
         return redirect(reverse('view_bag'))
-     
+    
     quantity = int(request.POST.get('quantity'))
     size = None
     if 'product_size' in request.POST:
@@ -85,7 +89,7 @@ def adjust_bag(request, item_id):
             bag[item_id] = quantity
         else:
             bag.pop(item_id)
-
+    messages.success(request, 'Product update succcessfully')
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 
@@ -106,6 +110,7 @@ def remove_from_bag(request, item_id):
             bag.pop(item_id)
 
         request.session['bag'] = bag
+        messages.success(request, 'Product Delete succcessfully')
         return HttpResponse(status=200)
 
     except KeyError:

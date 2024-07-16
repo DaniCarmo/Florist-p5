@@ -15,41 +15,61 @@ def wishlist_list(request):
     return render(request, 'wishlist/wishlist_list.html', context)
 
 @login_required
-def wishlist_to_bag(request, product_id):
-    wishlist_item = get_object_or_404(Wishlist, id=product_id, user=request.user)
+def wishlist_to_bag(request, item_id):
+    wishlist_item = get_object_or_404(Wishlist, id=item_id, user=request.user)
     product = wishlist_item.product
-
     # Add the product to the bag
     bag = request.session.get('bag', {})
     price = float(product.price)  # Get the price of the product and convert to float for json
-
-    if product.id in bag:
-        bag[product.id]['quantity'] += 1
+    size = request.POST.get('size')
+    item_id_str = str(product.id)
+    quantity = 1
+    if size:
+        if item_id_str not in bag:
+            bag[item_id_str] = {'items_by_size': {}}
+        
+        if 'items_by_size' not in bag[item_id_str]:
+            bag[item_id_str]['items_by_size'] = {}
+        
+        if size in bag[item_id_str]['items_by_size']:
+            bag[item_id_str]['items_by_size'][size] += quantity
+        else:
+            bag[item_id_str]['items_by_size'][size] = quantity
+        
+        messages.success(request, f'Added {product.name} (size {size}) to your bag')
     else:
-        bag[product.id] = {
-            'quantity': 1,
-            'price': price,  # Add the price to the bag item
-        }
-
+        if item_id_str in bag:
+            bag[item_id_str] += quantity
+            messages.success(request, f'Updated {product.name} quantity to {bag[item_id_str]}')
+        else:
+            bag[item_id_str] = quantity
     request.session['bag'] = bag
-
     # Remove item from wishlist
     wishlist_item.delete()
-
-    messages.success(request, f'Added {product.name} to your bag and removed from wishlist')
     return redirect('wishlist_list')
 
 @login_required
 def wishlist_add(request, product_id):
     product = get_object_or_404(Product, id=product_id)
+    size = 'N/A'
 
     if request.method == 'POST':
         wishlist_item, created = Wishlist.objects.get_or_create(
             user=request.user,
             product=product,
+            size = size,
         )
         if created:
             messages.success(request, 'Product added to wishlist')
+        else:
+            messages.info(request, 'Product already in wishlist')
+        
+        # Save the size in the session if provided
+        if size:
+            wishlist_sizes = request.session.get('wishlist_sizes', {})
+            wishlist_sizes[str(product.id)] = size
+            request.session['wishlist_sizes'] = wishlist_sizes
+
         return redirect('product_detail', product_id=product.id)
 
     return redirect('product_detail', product_id=product.id)
@@ -57,8 +77,10 @@ def wishlist_add(request, product_id):
 @login_required
 def wishlist_delete(request, product_id):
     wishlist_item = get_object_or_404(Wishlist, id=product_id, user=request.user)
+
     if request.method == 'POST':
         wishlist_item.delete()
+        messages.success(request, 'Product removed from wishlist')
         return redirect('wishlist_list')
     
     return render(request, 'wishlist/wishlist_confirm_delete.html', {'wishlist_item': wishlist_item})
