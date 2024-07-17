@@ -67,12 +67,7 @@
                             </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="small mb-0">{{ item.quantity }} @ 
-                                {% if item.product.has_sizes %}
-                                    ${{ item.price | calc_subtotal:item.quantity }}
-                                {% else %}
-                                    ${{ item.product.price | calc_subtotal:item.quantity }}
-                                {% endif %} each
+                            <p class="small mb-0">{{ item.quantity }} @ ${{ item.product.price | calc_subtotal:item.quantity }} each
                             </p>
                         </div>
                     </div>
