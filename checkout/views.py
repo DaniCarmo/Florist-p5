@@ -185,6 +185,9 @@ def checkout_success(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+        'total': order.order_total,
+        'delivery': order.delivery_cost,
+        'grand_total': order.grand_total,
     }
 
     return render(request, template, context)
