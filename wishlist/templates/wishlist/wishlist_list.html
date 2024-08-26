@@ -32,6 +32,13 @@
                 {% endif %}
                 <form action="{% url 'wishlist_to_bag' item.id %}" method="POST" class="d-inline">
                   {% csrf_token %}
+                  {% if item.product.sizes %}
+                    <select name="size" class="form-control d-inline w-auto">
+                        {% for size in item.product.sizes %}
+                            <option value="{{ size }}">{{ size }}</option>
+                        {% endfor %}
+                    </select>
+                {% endif %}
                   <button type="submit" class="btn btn-outline-success rounded-0">Add to Cart</button>
               </form>
             <a href="{% url 'wishlist_delete' item.id %}" class="btn btn-outline-danger rounded-0">Delete</a>
