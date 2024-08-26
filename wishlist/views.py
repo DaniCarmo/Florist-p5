@@ -15,8 +15,8 @@ def wishlist_list(request):
     return render(request, 'wishlist/wishlist_list.html', context)
 
 @login_required
-def wishlist_to_bag(request, item_id):
-    wishlist_item = get_object_or_404(Wishlist, id=item_id, user=request.user)
+def wishlist_to_bag(request, product_id):
+    wishlist_item = get_object_or_404(Wishlist, id=product_id, user=request.user)
     product = wishlist_item.product
     # Add the product to the bag
     bag = request.session.get('bag', {})
