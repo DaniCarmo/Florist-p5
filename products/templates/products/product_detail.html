@@ -55,10 +55,11 @@
                     {% endif %}
                     <p class="mt-3">{{ product.description }}</p>
                     {% if request.user.is_authenticated %}
-                    <form class="mt-3" action="{% url 'wishlist_add' product.id %}" method="POST">
+                    <form class="mt-3" action="{% url 'wishlist_add' product.id %}" method="POST" id="wishlist-form">
                         {% csrf_token %}
                         <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="btn btn-outline-danger rounded-0">
+ <input type="hidden" name="product_size" id="wishlist-product-size" value="">
+                        <button type="submit" class="btn btn-outline-danger rounded-0" id="wishlist-btn">
                             <span class="icon">
                                 <i class="fas fa-heart"></i>
                             </span>
@@ -122,6 +123,21 @@
             </div>
         </div>
     </div>
+<script>
+    document.getElementById('wishlist-btn').addEventListener('click', function (e) {
+        e.preventDefault();  // Prevent default form submission
+console.log('Hello')
+
+        // Get the selected product size from the "Add to Bag" form
+        const selectedSize = document.getElementById('id_product_size').value;
+
+        // Set the product size value in the hidden input of the wishlist form
+        document.getElementById('wishlist-product-size').value = selectedSize;
+
+        // Submit the form after updating the hidden field
+        document.getElementById('wishlist-form').submit();
+    });
+</script>
 {% endblock %}
 
 {% block postloadjs %}
