@@ -30,5 +30,7 @@ urlpatterns = [
     path('events/', include('events.urls')),
     path('wishlist/', include('wishlist.urls')),
     path('reviews/', include('reviews.urls')),
-    re_path(r'^robots\.txt$', serve, {'path': 'robots.txt', 'document_root': settings.BASE_DIR, 'show_indexes': False}),
+    re_path(r'^robots\.txt$', serve, {'path': 'robots.txt',
+                                      'document_root': settings.BASE_DIR,
+                                      'show_indexes': False}),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

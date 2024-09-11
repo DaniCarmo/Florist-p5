@@ -4,6 +4,7 @@ from .models import Review, Product
 from .forms import ReviewForm
 from django.contrib import messages
 
+
 @login_required
 def submit_review(request):
     if request.method == 'POST':
@@ -18,15 +19,16 @@ def submit_review(request):
         form = ReviewForm()
     return render(request, 'reviews/submit_review.html', {'form': form})
 
+
 @login_required
 def delete_review(request, review_id):
     """
     Allows admin to delete review
     """
     if not request.user.is_superuser:
-        messages.error(request, 'Oops! Sorry, only admins can perform this action.')
+        messages.error(request, 'Oops! Admins only.')
         return redirect('all_reviews')
-    
+
     review = get_object_or_404(Review, id=review_id)
     if request.method == "POST":
         review.delete()
@@ -36,9 +38,11 @@ def delete_review(request, review_id):
         messages.error(request, 'Invalid request method.')
         return redirect('all_reviews')
 
+
 def all_reviews(request):
     reviews = Review.objects.all()
     return render(request, 'reviews/all_reviews.html', {'reviews': reviews})
+
 
 def search_results(request):
     query = request.GET.get('query')
