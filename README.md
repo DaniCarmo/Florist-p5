@@ -541,7 +541,7 @@ The site pages have been tested on various screen sizes to ensure that the conte
 
 The code has been tested using:
 
-[W3 HTML validator](https://validator.w3.org/) - A few minor error were flagged related to how the tool reads repeated templates and structure from the Boutique Ado walkthrough project where this project is based on. Throughout manual testing, it was identified these minor error have no impact when running e-commerce application.
+[W3 HTML validator](https://validator.w3.org/) - no errors
 
 
 [W3 CSS validator](https://jigsaw.w3.org/css-validator/) - no errors
