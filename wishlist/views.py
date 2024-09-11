@@ -21,7 +21,7 @@ def wishlist_to_bag(request, product_id):
     # Add the product to the bag
     bag = request.session.get('bag', {})
     price = float(product.price)  # Get the price of the product and convert to float for json
-    size = request.POST.get('size')
+    size = wishlist_item.size
     item_id_str = str(product.id)
     quantity = 1
     if size:
@@ -51,13 +51,25 @@ def wishlist_to_bag(request, product_id):
 @login_required
 def wishlist_add(request, product_id):
     product = get_object_or_404(Product, id=product_id)
-    size = 'N/A'
+    size = request.POST.get('product_size')
+    if size:
+        if size == 'l':
+            price = float(product.price_l)
+        elif size == 'm':
+            price = float(product.price_m)
+        elif size == 's':
+            price = float(product.price_s)
+        else:
+            price = float(product.price)
+    else:
+        price = float(product.price)
 
     if request.method == 'POST':
         wishlist_item, created = Wishlist.objects.get_or_create(
             user=request.user,
             product=product,
             size = size,
+            price=price,
         )
         if created:
             messages.success(request, 'Product added to wishlist')
