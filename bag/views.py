@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.http import Http404
 from django.contrib import messages
 
 from products.models import Product
 
 # Create your views here.
+
 
 def view_bag(request):
     """ A view that renders the bag contents page """
@@ -14,12 +16,13 @@ def view_bag(request):
         try:
             product = get_object_or_404(Product, pk=item_id)
             updated_bag[item_id] = item_data
-        except:
+        except Http404:
             continue  # Skip non-existent products
 
     request.session['bag'] = updated_bag
 
     return render(request, 'bag/bag.html')
+
 
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
@@ -27,32 +30,43 @@ def add_to_bag(request, item_id):
     try:
         product = Product.objects.get(pk=item_id)
     except Product.DoesNotExist:
-        messages.error(request, "The product you are trying to add does not exist.")
+        messages.error(request, "The product you are trying to add "
+                                "does not exist.")
         return redirect(request.POST.get('redirect_url', 'products'))
-    
+
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    size = request.POST.get('product_size') if 'product_size' in request.POST else None
+    size = (
+        request.POST.get('product_size')
+        if 'product_size' in request.POST
+        else None
+    )
     bag = request.session.get('bag', {})
     item_id_str = str(item_id)
 
     if size:
         if item_id_str not in bag:
             bag[item_id_str] = {'items_by_size': {}}
-        
+
         if 'items_by_size' not in bag[item_id_str]:
             bag[item_id_str]['items_by_size'] = {}
-        
+
         if size in bag[item_id_str]['items_by_size']:
             bag[item_id_str]['items_by_size'][size] += quantity
         else:
             bag[item_id_str]['items_by_size'][size] = quantity
-        
-        messages.success(request, f'Added {product.name} (size {size}) to your bag')
+
+        messages.success(
+            request,
+            f'Added {product.name} (size {size}) to your bag'
+        )
     else:
         if item_id_str in bag:
             bag[item_id_str] += quantity
-            messages.success(request, f'Updated {product.name} quantity to {bag[item_id_str]}')
+            messages.success(
+                request,
+                f'Updated {product.name} quantity to {bag[item_id_str]}'
+                )
         else:
             bag[item_id_str] = quantity
             messages.success(request, f'Added {product.name} to your bag')
@@ -68,9 +82,12 @@ def adjust_bag(request, item_id):
     try:
         product = Product.objects.get(pk=item_id)
     except Product.DoesNotExist:
-        messages.error(request, "The product you are trying to adjust does not exist.")
+        messages.error(
+            request,
+            "The product you are trying to adjust does not exist."
+            )
         return redirect(reverse('view_bag'))
-    
+
     quantity = int(request.POST.get('quantity'))
     size = None
     if 'product_size' in request.POST:

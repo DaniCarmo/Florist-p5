@@ -1,4 +1,5 @@
-from django.shortcuts import (render, redirect, reverse, get_object_or_404, HttpResponse)
+from django.shortcuts import (render, redirect, reverse,
+                              get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -14,19 +15,20 @@ from bag.contexts import bag_contents
 import stripe
 import json
 
+
 @require_POST
 def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        stripe.PaymentIntent.modify(pid,metadata={
+        stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
         return HttpResponse(status=200)
     except Exception as e:
-        messages.error(request,'Sorry, your payment cannot be \
+        messages.error(request, 'Sorry, your payment cannot be \
                        proccessed right now, Please try again later.')
         return HttpResponse(content=e, status=400)
 
@@ -72,7 +74,8 @@ def checkout(request):
                         )
                         order_line_item.save()
                     elif 'items_by_size' in item_data:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in (item_data['items_by_size']
+                                               .items()):
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
@@ -82,30 +85,31 @@ def checkout(request):
                             order_line_item.save()
                     else:
                         messages.error(request, (
-                            "There seems to be an problem with some items in your bag. "
+                            "There's a problem with items in your bag. "
                             "Please call us for assistance!")
                         )
                         order.delete()
                         return redirect(reverse('view_bag'))
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of your products wasn't found in our database."
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                                    args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, "Oops, looks like there's nothing in your bag")
+            messages.error(request, "Oops, there's nothing in your bag")
             return redirect(reverse('products'))
-        
+
         current_bag = bag_contents(request)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
@@ -115,7 +119,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Attempt to prefill the form with any info the user maintains in their profile
+        # Prefill form with any info the user maintains in their profile
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)

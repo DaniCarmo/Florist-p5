@@ -27,7 +27,8 @@ def add_event(request):
             messages.success(request, "Event has been added successfully!")
             return redirect("events")
         else:
-            messages.error(request, "Failed to add event. Please ensure the form is valid.")
+            messages.error(request, "Failed to add event."
+                           "Please ensure the form is valid.")
     else:
         event_form = EventForm()
 
@@ -43,9 +44,9 @@ def delete_event(request, event_id):
     Allows admin to delete event
     """
     if not request.user.is_superuser:
-        messages.error(request, 'Oops! Sorry, only admins can perform this action.')
+        messages.error(request, 'Oops! Admins only.')
         return redirect(reverse('events'))
-    
+
     event = get_object_or_404(Event, id=event_id)
     if request.method == "POST":
         event.delete()
@@ -62,9 +63,9 @@ def edit_event(request, event_id):
     Allows admin to edit event
     """
     if not request.user.is_superuser:
-        messages.error(request, 'Oops! Sorry, only admins can perform this action.')
+        messages.error(request, 'Oops! Admins only.')
         return redirect(reverse('events'))
-    
+
     event = get_object_or_404(Event, id=event_id)
     if request.method == "POST":
         event_form = EventForm(data=request.POST, instance=event)
@@ -73,10 +74,10 @@ def edit_event(request, event_id):
             messages.success(request, 'Event updated!')
             return redirect(reverse('events'))
         else:
-            messages.error(request, 'Failed to update event. Please ensure the form is valid.')
+            messages.error(request, 'Please ensure form is valid.')
     else:
         event_form = EventForm(instance=event)
-        
+
     template = 'events/edit_event.html'
     context = {
         'event_form': event_form,
