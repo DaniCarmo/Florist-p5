@@ -57,6 +57,14 @@ def wishlist_to_bag(request, product_id):
 def wishlist_add(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     size = request.POST.get('product_size')
+
+    # Handle size and price logic depending whether product has size
+    if product.category.id == 1: # Flowers category
+        # Size is required for flowers
+        if not size:
+            messages.error(request, 'Please select a size for flowers.')
+            return redirect('product_detail', product_id=product.id)
+    # Price logic for flowers based on size
     if size:
         if size == 'l':
             price = float(product.price_l)
@@ -67,13 +75,15 @@ def wishlist_add(request, product_id):
         else:
             price = float(product.price)
     else:
+        # No size required for sweets and balloons
+        size = None  # Explicitly set size to None
         price = float(product.price)
 
     if request.method == 'POST':
         wishlist_item, created = Wishlist.objects.get_or_create(
             user=request.user,
             product=product,
-            size=size,
+            size=size, # Will use selected size if available or None
             price=price,
         )
         if created:
