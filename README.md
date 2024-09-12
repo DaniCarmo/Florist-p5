@@ -943,3 +943,5 @@ class MediaStorage(S3Boto3Storage):
 * Got the site and product images from Pexels [Pexels](https://www.pexels.com/).
 
 * I used ChatGBT [chat-gbt](https://chat.openai.com/) to assist with coming up with the ‘about us’ and product descriptions.
+
+* A colleage, Sayam, helped a great deal in helping me troubleshoot issues with the pricing related to the wishlist items which was one of the last issues I was faced with and stuck on.
