@@ -126,13 +126,18 @@
 <script>
     document.getElementById('wishlist-btn').addEventListener('click', function (e) {
         e.preventDefault();  // Prevent default form submission
-console.log('Hello')
 
-        // Get the selected product size from the "Add to Bag" form
-        const selectedSize = document.getElementById('id_product_size').value;
-
-        // Set the product size value in the hidden input of the wishlist form
-        document.getElementById('wishlist-product-size').value = selectedSize;
+        // Check if the product has sizes
+        const sizeSelect = document.getElementById('id_product_size');
+        
+        if (sizeSelect) {
+            // If the product has sizes, set value in hidden input of wishlist form
+            const selectedSize = sizeSelect.value;
+            document.getElementById('wishlist-product-size').value = selectedSize;
+        } else {
+            // If the product doesn't have sizes, leave empty/clear
+            document.getElementById('wishlist-product-size').value = ''; 
+        }
 
         // Submit the form after updating the hidden field
         document.getElementById('wishlist-form').submit();
