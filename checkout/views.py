@@ -21,6 +21,12 @@ def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
+        # Check if the user is authenticated
+        if request.user.is_authenticated:
+            username = request.user.username
+        else:
+            username = "Anonymous"
+
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': request.POST.get('save_info'),
@@ -58,11 +64,16 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
-            if request.user:
-                profile = UserProfile.objects.get(user=request.user)
-            if profile:
-                order.user_profile = profile
+
+            if request.user.is_authenticated:
+                try:
+                    profile = UserProfile.objects.get(user=request.user)
+                    order.user_profile = profile
+                except UserProfile.DoesNotExist:
+                    profile = None  # Handle the case if no profile exists for the user
+
             order.save()
+
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
