@@ -59,7 +59,7 @@ def wishlist_add(request, product_id):
     size = request.POST.get('product_size')
 
     # Handle size and price logic depending whether product has size
-    if product.category.id == 1: # Flowers category
+    if product.category.id == 1:  # Flowers category
         # Size is required for flowers
         if not size:
             messages.error(request, 'Please select a size for flowers.')
@@ -83,7 +83,7 @@ def wishlist_add(request, product_id):
         wishlist_item, created = Wishlist.objects.get_or_create(
             user=request.user,
             product=product,
-            size=size, # Will use selected size if available or None
+            size=size,  # Will use selected size if available or None
             price=price,
         )
         if created:
