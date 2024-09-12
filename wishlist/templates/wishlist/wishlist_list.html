@@ -25,24 +25,29 @@
           <li>
             <h5>{{ item.product.name }}</h5>
             <div>
-    Price: $
-    {% if item.price %}
-        {{ item.price }}
-    {% else %}
-        {{ item.product.price }}
-    {% endif %}
-</div>
-<p>Size: {{ item.size | upper }}</p>
-                {% if item.product.image %}
-                    <img class="img w-50 image-list" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                {% else %}
-                    <img class="img w-50 image-list" src="{% static 'media/noimage.png' %}" alt="{{ item.product.name }}">
-                {% endif %}
-                <form action="{% url 'wishlist_to_bag' item.id %}" method="POST" class="d-inline">
-                  {% csrf_token %}
-                  
-                  <button type="submit" class="btn btn-outline-success rounded-0">Add to Cart</button>
-              </form>
+              Price: $
+              {% if item.price %}
+                  {{ item.price }}
+              {% else %}
+                  {{ item.product.price }}
+              {% endif %}
+          </div>
+          <p>Size:
+              {% if item.size %}
+                  {{ item.size|upper }}
+              {% else %}
+                  N/A
+              {% endif %}
+          </p>
+            {% if item.product.image %}
+              <img class="img w-50 image-list" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+            {% else %}
+              <img class="img w-50 image-list" src="{% static 'media/noimage.png' %}" alt="{{ item.product.name }}">
+            {% endif %}
+            <form action="{% url 'wishlist_to_bag' item.id %}" method="POST" class="d-inline">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-outline-success rounded-0">Add to Cart</button>
+            </form>
             <a href="{% url 'wishlist_delete' item.id %}" class="btn btn-outline-danger rounded-0">Delete</a>
           </li>
         {% endfor %}
