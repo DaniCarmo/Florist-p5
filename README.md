@@ -550,7 +550,7 @@ The code has been tested using:
 [jshint](https://jshint.com/) - no errors
 
 
-[CI Python Linter](https://pep8ci.herokuapp.com/) - a few minor warnings due to whitespace and lines too long, but nothing that affected the site itself or the functionality.
+[CI Python Linter](https://pep8ci.herokuapp.com/) - no errors.
 
 
 
